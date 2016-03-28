@@ -420,103 +420,6 @@ void escudo_run() {
         principal.escudo_c++;
 }
 
-/*
-void crear_hojas(RamaPtr r, int direccion) {
-
-    RamaPtr der = malloc(sizeof(struct Rama));
-    der->Der = NULL;
-    der->Izq = NULL;
-    der->Elemento.estado = r->Elemento.estado+1;
-    der->Elemento.radio = 10;
-    der->Elemento.x = r->Elemento.x + (r->Elemento.vel_x * direccion);
-    der->Elemento.y = r->Elemento.y + r->Elemento.vel_y;
-    der->Elemento.vel_x = 0;
-    der->Elemento.vel_y = 0;
-    RamaPtr izq = malloc(sizeof(struct Rama));
-    izq->Der = NULL;
-    izq->Izq = NULL;
-    izq->Elemento.estado = r->Elemento.estado+1;
-    izq->Elemento.radio = 10;
-    izq->Elemento.x = r->Elemento.x + (r->Elemento.vel_x * direccion);
-    izq->Elemento.y = r->Elemento.y + r->Elemento.vel_y;
-    izq->Elemento.vel_x = 0;
-    izq->Elemento.vel_y = 0;
-
-    //r->Elemento.estado = 1;
-    r->Der = der;
-    r->Izq = izq;
-}
-
-void plantar_arbor(RamaPtr a) {
-    a->Elemento.estado = 0;
-    a->Elemento.x = pantalla_ancho/2;
-    a->Elemento.y = 0;
-    a->Elemento.vel_x = 0;
-    a->Elemento.vel_y = 0;
-    a->Elemento.radio = 0;
-    a->Elemento.estado = 0;
-    crear_hojas(a, 1);
-
-}
-
-void grow_arbor(RamaPtr a) {
-    if(a->Der != NULL) {
-        double x = a->Der->Elemento.x;
-        double y = a->Der->Elemento.y;
-        double radio = a->Der->Elemento.radio;
-        int estado = a->Der->Elemento.estado;
-        double v_x = a->Der->Elemento.vel_x;
-        double v_y = a->Der->Elemento.vel_y;
-
-        if(v_y <= radio){
-            a->Der->Elemento.vel_y += 0.9;
-            a->Der->Elemento.vel_x += 0.7;//+estado/20;
-        }else if(a->Der->Der == NULL)
-            crear_hojas(a->Der, 1);
-
-        grow_arbor(a->Der);
-    }
-    if(a->Izq != NULL) {
-        double x = a->Izq->Elemento.x;
-        double y = a->Izq->Elemento.y;
-        double radio = a->Izq->Elemento.radio;
-        int estado = a->Izq->Elemento.estado;
-        double v_x = a->Izq->Elemento.vel_x;
-        double v_y = a->Izq->Elemento.vel_y;
-
-        if(v_y <= radio){
-            a->Izq->Elemento.vel_y += 0.9;
-            a->Izq->Elemento.vel_x += 0.7;//+estado/20;
-        }else if(a->Izq->Izq == NULL && estado % 3 == 0)
-            crear_hojas(a->Izq, -1);
-
-        grow_arbor(a->Izq);
-    }
-}
-
-void draw_arbor(RamaPtr a) {
-    if(a->Der != NULL) {
-        double x = a->Der->Elemento.x;
-        double y = a->Der->Elemento.y;
-        double radio = a->Der->Elemento.radio;
-        double estado = a->Der->Elemento.estado;
-        double v_x = a->Der->Elemento.vel_x;
-        double v_y = a->Der->Elemento.vel_y;
-        Pantalla_DibujaLinea(x, y, x+v_x, y+v_y);
-        draw_arbor(a->Der);
-    }
-    if(a->Izq != NULL) {
-        double x = a->Izq->Elemento.x;
-        double y = a->Izq->Elemento.y;
-        double radio = a->Izq->Elemento.radio;
-        double estado = a->Izq->Elemento.estado;
-        double v_x = a->Izq->Elemento.vel_x;
-        double v_y = a->Izq->Elemento.vel_y;
-        Pantalla_DibujaLinea(x, y, x-v_x, y+v_y);
-        draw_arbor(a->Izq);
-    }
-}*/
-
 int main(int argc, char **argv)
 {
     srand(time(NULL));
@@ -529,7 +432,6 @@ int main(int argc, char **argv)
     printf("\n");
 
     Pantalla_Crea("Prueba", pantalla_ancho,pantalla_alto, 0);
-    //Pantalla_ColorTrazo(0,0,255, 255);
     Pantalla_ColorTrazo(0,0,255, 255);
     Pantalla_ColorRelleno(0,255,0, 255);
 
@@ -540,13 +442,10 @@ int main(int argc, char **argv)
     NodoPtr Cadena_disparos = crear_cadena();
     NodoPtr Cadena_enemigos = crear_cadena();
     ParticulaPtr Cadena_particulas = Particulas_cadena(pantalla_alto, pantalla_ancho);
-    //RamaPtr Arbol = crear_arbor();
     TrianguloPtr Sierpinski_1 = crear_triangulo(NULL, Punto_crea(4, 460), Punto_crea(224, 20), Punto_crea(444, 460), 1);
     TrianguloPtr Sierpinski_2 = crear_triangulo(NULL, Punto_crea(844, 20), Punto_crea(624, 460), Punto_crea(404, 20), 1);
-    //plantar_arbor(Arbol);
 
     while (Pantalla_Activa() && !terminado) {
-        //Pantalla_DibujaRellenoFondo(255,255,255, 255);
         Pantalla_DibujaRellenoFondo(180, 180, 180, 255);
         Pantalla_RatonCoordenadas(&mouse_x, &mouse_y);
         ftime(&start);
@@ -559,8 +458,6 @@ int main(int argc, char **argv)
             Pantalla_DibujaTexto("Menu", 300, 30);
             Pantalla_DibujaLinea(295, 45, 340, 45);
 
-            //grow_arbor(Arbol);
-            //draw_arbor(Arbol);
             grow_triangulo(Sierpinski_1, Sierpinski_1);
             grow_triangulo(Sierpinski_2, Sierpinski_2);
 
@@ -723,19 +620,16 @@ int main(int argc, char **argv)
             Pantalla_DibujaTexto("Has perdido!! D:", pantalla_ancho/2-80, 30);
             char string_puntos[32];
             sprintf(string_puntos, "Puntuacion: %d", principal.puntos);
-            //sprintf(string_puntos, "Puntuacion: %d", puntuaciones_num);
             Pantalla_DibujaTexto(string_puntos, pantalla_ancho/2-80, 45);
             Pantalla_DibujaTexto("Puntuaciones de otros jugadores:", pantalla_ancho/2-85, 70);
 
             for(int i = 0; i < puntos_num(); i++) {
                 char string_puntos_t[32];
-                //if(strcmp(puntos_array_f[i].nombre, principal.nombre) == 0)
                 if(strcmp(puntos_array_nombre(i), principal.nombre) == 0)
                     Pantalla_ColorTrazo(255,60,30, 255);
                 else
                     Pantalla_ColorTrazo(30,150,255, 255);
                 sprintf(string_puntos_t, "%s: %d", puntos_array_nombre(i), puntos_array_puntos(i));
-                //sprintf(string_puntos_t, "%d", puntos_array_f[i].puntos);
                 Pantalla_DibujaTexto(string_puntos_t, pantalla_ancho/2-80, 90 + (i*15));
 
             }
@@ -757,8 +651,6 @@ int main(int argc, char **argv)
         Pantalla_ColorTrazo(0,0,255, 255);
         Pantalla_DibujaTexto(counter, pantalla_ancho-20, 5);
         Pantalla_DibujaTexto(fps, pantalla_ancho-40, 20);
-        //printf("\nTarda %u milisegundos", diff);
-        //Pantalla_Espera(20-diff);
 
         Pantalla_Actualiza();
         Pantalla_Espera(15-diff_p);

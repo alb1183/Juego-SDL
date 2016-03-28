@@ -2,11 +2,11 @@
 #define __LISTAS_H
 
 /**
-\mainpage La biblioteca Lista es una biblioteca de Listas, Estructuras enlazadas, Arboles, etc..
+\mainpage La biblioteca Lista es una biblioteca de estructuras enlazadas.
 */
 /**
    \file Listas.h
-   \brief  Esta bibliteca esta destinada a agrupar todos las funciones y estructuras necesarias de las listas, estructuras enlazadas y arboles
+   \brief  Esta bibliteca esta destinada a agrupar todos las funciones y estructuras necesarias de las estructuras enlazadas.
 */
 
 
@@ -31,20 +31,10 @@ struct Nodo {
  */
 typedef struct Nodo* NodoPtr;
 
-/*
-struct Rama {
-    Entidad Elemento;
-    struct Rama* Izq;
-    struct Rama* Der;
-};
-typedef struct Rama* RamaPtr;*/
-
 /**
     \brief Funcion para crear una cadena de nodos(crea el nodo cabecera con memoria dinamica)
  */
 NodoPtr crear_cadena();
-
-//RamaPtr crear_arbor();
 
 /**
     \brief Funcion para insertar un elemento al principio de la cadena

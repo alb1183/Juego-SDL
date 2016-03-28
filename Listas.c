@@ -7,14 +7,6 @@ NodoPtr crear_cadena() {
 
     return p;
 }
-/*
-RamaPtr crear_arbor() {
-    RamaPtr p = malloc(sizeof(struct Rama));
-    p->Der = NULL;
-    p->Izq = NULL;
-
-    return p;
-}*/
 
 void Insertar_Inicio(NodoPtr p, Entidad e) {
     NodoPtr aux = malloc(sizeof(struct Nodo));

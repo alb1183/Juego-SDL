@@ -1,0 +1,94 @@
+\hypertarget{_listas_8h}{}\section{C\+:/\+Users/usuario2/\+Desktop/uni/\+Segundo Cuatrimestre/\+Programacion/\+Juego-\/\+S\+D\+L/\+Listas.h File Reference}
+\label{_listas_8h}\index{C\+:/\+Users/usuario2/\+Desktop/uni/\+Segundo Cuatrimestre/\+Programacion/\+Juego-\/\+S\+D\+L/\+Listas.\+h@{C\+:/\+Users/usuario2/\+Desktop/uni/\+Segundo Cuatrimestre/\+Programacion/\+Juego-\/\+S\+D\+L/\+Listas.\+h}}
+
+
+Esta bibliteca esta destinada a agrupar todos las funciones y estructuras necesarias de las estructuras enlazadas.  
+
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_entidad}{Entidad}
+\begin{DoxyCompactList}\small\item\em Estructura elemental de informacion del nodo. \end{DoxyCompactList}\item 
+struct \hyperlink{struct_nodo}{Nodo}
+\begin{DoxyCompactList}\small\item\em Estructura unitaria de nodo(enlazada) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{struct_entidad}{Entidad} {\bfseries Entidad}\hypertarget{_listas_8h_a7ad017b55fd3d7205620b440a78f2f42}{}\label{_listas_8h_a7ad017b55fd3d7205620b440a78f2f42}
+
+\item 
+typedef struct \hyperlink{struct_nodo}{Nodo} $\ast$ \hyperlink{_listas_8h_af37a81adde97d42aabefdf2df147b7b0}{Nodo\+Ptr}\hypertarget{_listas_8h_af37a81adde97d42aabefdf2df147b7b0}{}\label{_listas_8h_af37a81adde97d42aabefdf2df147b7b0}
+
+\begin{DoxyCompactList}\small\item\em Tipo \hyperlink{struct_nodo}{Nodo} como un apuntador. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_listas_8h_af37a81adde97d42aabefdf2df147b7b0}{Nodo\+Ptr} \hyperlink{_listas_8h_a32eb66053e6dbe7feb5a59207ab53f3d}{crear\+\_\+cadena} ()\hypertarget{_listas_8h_a32eb66053e6dbe7feb5a59207ab53f3d}{}\label{_listas_8h_a32eb66053e6dbe7feb5a59207ab53f3d}
+
+\begin{DoxyCompactList}\small\item\em Funcion para crear una cadena de nodos(crea el nodo cabecera con memoria dinamica) \end{DoxyCompactList}\item 
+void \hyperlink{_listas_8h_acd2e4321a805526baa9a2a5bd9f84469}{Insertar\+\_\+\+Inicio} (\hyperlink{_listas_8h_af37a81adde97d42aabefdf2df147b7b0}{Nodo\+Ptr} p, \hyperlink{struct_entidad}{Entidad} e)
+\begin{DoxyCompactList}\small\item\em Funcion para insertar un elemento al principio de la cadena. \end{DoxyCompactList}\item 
+void \hyperlink{_listas_8h_a62ff2e0c50ae42b055cc80fe3b0eae32}{Suprime\+Nodo} (\hyperlink{_listas_8h_af37a81adde97d42aabefdf2df147b7b0}{Nodo\+Ptr} q)
+\begin{DoxyCompactList}\small\item\em Funcion para suprimir un nodo de la cadena. \end{DoxyCompactList}\item 
+void \hyperlink{_listas_8h_a3e7047efc84e049bc41467f08d573667}{liberar\+\_\+cadena} (\hyperlink{_listas_8h_af37a81adde97d42aabefdf2df147b7b0}{Nodo\+Ptr} p)
+\begin{DoxyCompactList}\small\item\em Suprime la cadena y libera la memoria que utilizaba. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Esta bibliteca esta destinada a agrupar todos las funciones y estructuras necesarias de las estructuras enlazadas. 
+
+
+
+\subsection{Function Documentation}
+\index{Listas.\+h@{Listas.\+h}!Insertar\+\_\+\+Inicio@{Insertar\+\_\+\+Inicio}}
+\index{Insertar\+\_\+\+Inicio@{Insertar\+\_\+\+Inicio}!Listas.\+h@{Listas.\+h}}
+\subsubsection[{\texorpdfstring{Insertar\+\_\+\+Inicio(\+Nodo\+Ptr p, Entidad e)}{Insertar_Inicio(NodoPtr p, Entidad e)}}]{\setlength{\rightskip}{0pt plus 5cm}void Insertar\+\_\+\+Inicio (
+\begin{DoxyParamCaption}
+\item[{{\bf Nodo\+Ptr}}]{p, }
+\item[{{\bf Entidad}}]{e}
+\end{DoxyParamCaption}
+)}\hypertarget{_listas_8h_acd2e4321a805526baa9a2a5bd9f84469}{}\label{_listas_8h_acd2e4321a805526baa9a2a5bd9f84469}
+
+
+Funcion para insertar un elemento al principio de la cadena. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & Puntero del nodo Cabecera de la cadena \\
+\hline
+{\em e} & Elemento a insertar \\
+\hline
+\end{DoxyParams}
+\index{Listas.\+h@{Listas.\+h}!liberar\+\_\+cadena@{liberar\+\_\+cadena}}
+\index{liberar\+\_\+cadena@{liberar\+\_\+cadena}!Listas.\+h@{Listas.\+h}}
+\subsubsection[{\texorpdfstring{liberar\+\_\+cadena(\+Nodo\+Ptr p)}{liberar_cadena(NodoPtr p)}}]{\setlength{\rightskip}{0pt plus 5cm}void liberar\+\_\+cadena (
+\begin{DoxyParamCaption}
+\item[{{\bf Nodo\+Ptr}}]{p}
+\end{DoxyParamCaption}
+)}\hypertarget{_listas_8h_a3e7047efc84e049bc41467f08d573667}{}\label{_listas_8h_a3e7047efc84e049bc41467f08d573667}
+
+
+Suprime la cadena y libera la memoria que utilizaba. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & Puntero del nodo Cabecera de la cadena \\
+\hline
+\end{DoxyParams}
+\index{Listas.\+h@{Listas.\+h}!Suprime\+Nodo@{Suprime\+Nodo}}
+\index{Suprime\+Nodo@{Suprime\+Nodo}!Listas.\+h@{Listas.\+h}}
+\subsubsection[{\texorpdfstring{Suprime\+Nodo(\+Nodo\+Ptr q)}{SuprimeNodo(NodoPtr q)}}]{\setlength{\rightskip}{0pt plus 5cm}void Suprime\+Nodo (
+\begin{DoxyParamCaption}
+\item[{{\bf Nodo\+Ptr}}]{q}
+\end{DoxyParamCaption}
+)}\hypertarget{_listas_8h_a62ff2e0c50ae42b055cc80fe3b0eae32}{}\label{_listas_8h_a62ff2e0c50ae42b055cc80fe3b0eae32}
+
+
+Funcion para suprimir un nodo de la cadena. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em q} & \hyperlink{struct_nodo}{Nodo} que se quiere eliminar(como precondicion q no es la cabecera) \\
+\hline
+\end{DoxyParams}

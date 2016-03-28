@@ -1,0 +1,99 @@
+\hypertarget{_sierpinski_8h}{}\section{C\+:/\+Users/usuario2/\+Desktop/uni/\+Segundo Cuatrimestre/\+Programacion/\+Juego-\/\+S\+D\+L/\+Sierpinski.h File Reference}
+\label{_sierpinski_8h}\index{C\+:/\+Users/usuario2/\+Desktop/uni/\+Segundo Cuatrimestre/\+Programacion/\+Juego-\/\+S\+D\+L/\+Sierpinski.\+h@{C\+:/\+Users/usuario2/\+Desktop/uni/\+Segundo Cuatrimestre/\+Programacion/\+Juego-\/\+S\+D\+L/\+Sierpinski.\+h}}
+
+
+T\+DA dedicado a la generacion de un fractal.  
+
+
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structpunto}{punto} $\ast$ \hyperlink{_sierpinski_8h_ad5ccdfcda50a1b3ef1ab186cfb7169a6}{Punto}\hypertarget{_sierpinski_8h_ad5ccdfcda50a1b3ef1ab186cfb7169a6}{}\label{_sierpinski_8h_ad5ccdfcda50a1b3ef1ab186cfb7169a6}
+
+\begin{DoxyCompactList}\small\item\em Tipo punto. \end{DoxyCompactList}\item 
+typedef struct \hyperlink{struct_triangulo_ptr}{Triangulo\+Ptr} $\ast$ \hyperlink{_sierpinski_8h_a19a177effe307794bd9d44e88fd990ba}{Triangulo\+Ptr}\hypertarget{_sierpinski_8h_a19a177effe307794bd9d44e88fd990ba}{}\label{_sierpinski_8h_a19a177effe307794bd9d44e88fd990ba}
+
+\begin{DoxyCompactList}\small\item\em Tipo triangulo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_sierpinski_8h_ad5ccdfcda50a1b3ef1ab186cfb7169a6}{Punto} \hyperlink{_sierpinski_8h_adf144043775c8c4723df8d0789eedbae}{Punto\+\_\+crea} (double x, double y)
+\begin{DoxyCompactList}\small\item\em Crea un punto. \end{DoxyCompactList}\item 
+\hyperlink{struct_triangulo_ptr}{Triangulo\+Ptr} \hyperlink{_sierpinski_8h_a4ac640a357e611f343c7979c8658477b}{crear\+\_\+triangulo} (\hyperlink{struct_triangulo_ptr}{Triangulo\+Ptr} m, \hyperlink{_sierpinski_8h_ad5ccdfcda50a1b3ef1ab186cfb7169a6}{Punto} a, \hyperlink{_sierpinski_8h_ad5ccdfcda50a1b3ef1ab186cfb7169a6}{Punto} b, \hyperlink{_sierpinski_8h_ad5ccdfcda50a1b3ef1ab186cfb7169a6}{Punto} c, int level)
+\begin{DoxyCompactList}\small\item\em Crea un triangulo del nivel inferior. \end{DoxyCompactList}\item 
+void \hyperlink{_sierpinski_8h_adb5ae8e17b8892cbd0b5e0052f8f3910}{grow\+\_\+triangulo} (\hyperlink{struct_triangulo_ptr}{Triangulo\+Ptr} m, \hyperlink{struct_triangulo_ptr}{Triangulo\+Ptr} t)
+\begin{DoxyCompactList}\small\item\em Hace crecer el fractal. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+T\+DA dedicado a la generacion de un fractal. 
+
+
+
+\subsection{Function Documentation}
+\index{Sierpinski.\+h@{Sierpinski.\+h}!crear\+\_\+triangulo@{crear\+\_\+triangulo}}
+\index{crear\+\_\+triangulo@{crear\+\_\+triangulo}!Sierpinski.\+h@{Sierpinski.\+h}}
+\subsubsection[{\texorpdfstring{crear\+\_\+triangulo(\+Triangulo\+Ptr m, Punto a, Punto b, Punto c, int level)}{crear_triangulo(TrianguloPtr m, Punto a, Punto b, Punto c, int level)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Triangulo\+Ptr} crear\+\_\+triangulo (
+\begin{DoxyParamCaption}
+\item[{{\bf Triangulo\+Ptr}}]{m, }
+\item[{{\bf Punto}}]{a, }
+\item[{{\bf Punto}}]{b, }
+\item[{{\bf Punto}}]{c, }
+\item[{int}]{level}
+\end{DoxyParamCaption}
+)}\hypertarget{_sierpinski_8h_a4ac640a357e611f343c7979c8658477b}{}\label{_sierpinski_8h_a4ac640a357e611f343c7979c8658477b}
+
+
+Crea un triangulo del nivel inferior. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & Triangulo anterior. \\
+\hline
+{\em a} & Punto a. \\
+\hline
+{\em b} & Punto b. \\
+\hline
+{\em c} & Punto c. \\
+\hline
+{\em level} & Nivel de generacion. \\
+\hline
+\end{DoxyParams}
+\index{Sierpinski.\+h@{Sierpinski.\+h}!grow\+\_\+triangulo@{grow\+\_\+triangulo}}
+\index{grow\+\_\+triangulo@{grow\+\_\+triangulo}!Sierpinski.\+h@{Sierpinski.\+h}}
+\subsubsection[{\texorpdfstring{grow\+\_\+triangulo(\+Triangulo\+Ptr m, Triangulo\+Ptr t)}{grow_triangulo(TrianguloPtr m, TrianguloPtr t)}}]{\setlength{\rightskip}{0pt plus 5cm}void grow\+\_\+triangulo (
+\begin{DoxyParamCaption}
+\item[{{\bf Triangulo\+Ptr}}]{m, }
+\item[{{\bf Triangulo\+Ptr}}]{t}
+\end{DoxyParamCaption}
+)}\hypertarget{_sierpinski_8h_adb5ae8e17b8892cbd0b5e0052f8f3910}{}\label{_sierpinski_8h_adb5ae8e17b8892cbd0b5e0052f8f3910}
+
+
+Hace crecer el fractal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & Triangulo padre. \\
+\hline
+{\em t} & Triangulo actual en la iteracion. \\
+\hline
+\end{DoxyParams}
+\index{Sierpinski.\+h@{Sierpinski.\+h}!Punto\+\_\+crea@{Punto\+\_\+crea}}
+\index{Punto\+\_\+crea@{Punto\+\_\+crea}!Sierpinski.\+h@{Sierpinski.\+h}}
+\subsubsection[{\texorpdfstring{Punto\+\_\+crea(double x, double y)}{Punto_crea(double x, double y)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Punto} Punto\+\_\+crea (
+\begin{DoxyParamCaption}
+\item[{double}]{x, }
+\item[{double}]{y}
+\end{DoxyParamCaption}
+)}\hypertarget{_sierpinski_8h_adf144043775c8c4723df8d0789eedbae}{}\label{_sierpinski_8h_adf144043775c8c4723df8d0789eedbae}
+
+
+Crea un punto. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Coordenada x(real) del punto. \\
+\hline
+{\em y} & Coordenada y(real) del punto. \\
+\hline
+\end{DoxyParams}

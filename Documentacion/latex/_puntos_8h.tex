@@ -1,0 +1,90 @@
+\hypertarget{_puntos_8h}{}\section{C\+:/\+Users/usuario2/\+Desktop/uni/\+Segundo Cuatrimestre/\+Programacion/\+Juego-\/\+S\+D\+L/\+Puntos.h File Reference}
+\label{_puntos_8h}\index{C\+:/\+Users/usuario2/\+Desktop/uni/\+Segundo Cuatrimestre/\+Programacion/\+Juego-\/\+S\+D\+L/\+Puntos.\+h@{C\+:/\+Users/usuario2/\+Desktop/uni/\+Segundo Cuatrimestre/\+Programacion/\+Juego-\/\+S\+D\+L/\+Puntos.\+h}}
+
+
+T\+DA dedicado a la lectura y manipulacion de la puntuacion apartir de un fichero.  
+
+
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{struct_puntuaciones}{Puntuaciones} $\ast$ \hyperlink{_puntos_8h_a44f9f43b7d64b89cb4e28b78396a92cc}{Puntuaciones}\hypertarget{_puntos_8h_a44f9f43b7d64b89cb4e28b78396a92cc}{}\label{_puntos_8h_a44f9f43b7d64b89cb4e28b78396a92cc}
+
+\begin{DoxyCompactList}\small\item\em Tipo de la puntuacion(array) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{_puntos_8h_a233819629458ef1228ae683949f7157f}{leer\+\_\+puntuaciones} ()\hypertarget{_puntos_8h_a233819629458ef1228ae683949f7157f}{}\label{_puntos_8h_a233819629458ef1228ae683949f7157f}
+
+\begin{DoxyCompactList}\small\item\em Funcion para leer las puntuaciones del fichero. \end{DoxyCompactList}\item 
+void \hyperlink{_puntos_8h_a8a9976e1065308dd510357eeef04dadb}{escribir\+\_\+puntuaciones} (char nombre\mbox{[}26\mbox{]}, int puntos)
+\begin{DoxyCompactList}\small\item\em Funcion de escritura de la puntuacion en el fichero. \end{DoxyCompactList}\item 
+int \hyperlink{_puntos_8h_a164f5886daa3859b9785b72e68dc28d4}{puntos\+\_\+num} ()\hypertarget{_puntos_8h_a164f5886daa3859b9785b72e68dc28d4}{}\label{_puntos_8h_a164f5886daa3859b9785b72e68dc28d4}
+
+\begin{DoxyCompactList}\small\item\em Numero de jugadors en la puntuacion. \end{DoxyCompactList}\item 
+char $\ast$ \hyperlink{_puntos_8h_a7330f9573e459e84ffafe2f1341bec34}{puntos\+\_\+array\+\_\+nombre} (int i)
+\begin{DoxyCompactList}\small\item\em Funcion para obtener el nombre del array de las puntuaciones en un determinado indice. \end{DoxyCompactList}\item 
+int \hyperlink{_puntos_8h_a545db003e03b5e437dc0d984d4afb220}{puntos\+\_\+array\+\_\+puntos} (int i)
+\begin{DoxyCompactList}\small\item\em Funcion para obtener los puntos del array de las puntuaciones en un determinado indice. \end{DoxyCompactList}\item 
+void \hyperlink{_puntos_8h_a41dd09e1b1ab154ecc6e1c29affd7422}{liberar\+\_\+puntos} ()\hypertarget{_puntos_8h_a41dd09e1b1ab154ecc6e1c29affd7422}{}\label{_puntos_8h_a41dd09e1b1ab154ecc6e1c29affd7422}
+
+\begin{DoxyCompactList}\small\item\em Funcion para liberar la memoria del array puntuaciones. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+T\+DA dedicado a la lectura y manipulacion de la puntuacion apartir de un fichero. 
+
+
+
+\subsection{Function Documentation}
+\index{Puntos.\+h@{Puntos.\+h}!escribir\+\_\+puntuaciones@{escribir\+\_\+puntuaciones}}
+\index{escribir\+\_\+puntuaciones@{escribir\+\_\+puntuaciones}!Puntos.\+h@{Puntos.\+h}}
+\subsubsection[{\texorpdfstring{escribir\+\_\+puntuaciones(char nombre[26], int puntos)}{escribir_puntuaciones(char nombre[26], int puntos)}}]{\setlength{\rightskip}{0pt plus 5cm}void escribir\+\_\+puntuaciones (
+\begin{DoxyParamCaption}
+\item[{char}]{nombre\mbox{[}26\mbox{]}, }
+\item[{int}]{puntos}
+\end{DoxyParamCaption}
+)}\hypertarget{_puntos_8h_a8a9976e1065308dd510357eeef04dadb}{}\label{_puntos_8h_a8a9976e1065308dd510357eeef04dadb}
+
+
+Funcion de escritura de la puntuacion en el fichero. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nombre} & String del nombre a escribir. \\
+\hline
+{\em puntos} & Puntuacion a escribir. \\
+\hline
+\end{DoxyParams}
+\index{Puntos.\+h@{Puntos.\+h}!puntos\+\_\+array\+\_\+nombre@{puntos\+\_\+array\+\_\+nombre}}
+\index{puntos\+\_\+array\+\_\+nombre@{puntos\+\_\+array\+\_\+nombre}!Puntos.\+h@{Puntos.\+h}}
+\subsubsection[{\texorpdfstring{puntos\+\_\+array\+\_\+nombre(int i)}{puntos_array_nombre(int i)}}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ puntos\+\_\+array\+\_\+nombre (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+)}\hypertarget{_puntos_8h_a7330f9573e459e84ffafe2f1341bec34}{}\label{_puntos_8h_a7330f9573e459e84ffafe2f1341bec34}
+
+
+Funcion para obtener el nombre del array de las puntuaciones en un determinado indice. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & Indice del array. \\
+\hline
+\end{DoxyParams}
+\index{Puntos.\+h@{Puntos.\+h}!puntos\+\_\+array\+\_\+puntos@{puntos\+\_\+array\+\_\+puntos}}
+\index{puntos\+\_\+array\+\_\+puntos@{puntos\+\_\+array\+\_\+puntos}!Puntos.\+h@{Puntos.\+h}}
+\subsubsection[{\texorpdfstring{puntos\+\_\+array\+\_\+puntos(int i)}{puntos_array_puntos(int i)}}]{\setlength{\rightskip}{0pt plus 5cm}int puntos\+\_\+array\+\_\+puntos (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+)}\hypertarget{_puntos_8h_a545db003e03b5e437dc0d984d4afb220}{}\label{_puntos_8h_a545db003e03b5e437dc0d984d4afb220}
+
+
+Funcion para obtener los puntos del array de las puntuaciones en un determinado indice. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & Indice del array. \\
+\hline
+\end{DoxyParams}

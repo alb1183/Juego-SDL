@@ -1,0 +1,205 @@
+\hypertarget{_vector_8h}{}\section{C\+:/\+Users/usuario2/\+Desktop/uni/\+Segundo Cuatrimestre/\+Programacion/\+Juego-\/\+S\+D\+L/\+Vector.h File Reference}
+\label{_vector_8h}\index{C\+:/\+Users/usuario2/\+Desktop/uni/\+Segundo Cuatrimestre/\+Programacion/\+Juego-\/\+S\+D\+L/\+Vector.\+h@{C\+:/\+Users/usuario2/\+Desktop/uni/\+Segundo Cuatrimestre/\+Programacion/\+Juego-\/\+S\+D\+L/\+Vector.\+h}}
+
+
+T\+DA dedicado al calculo vectorial.  
+
+
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{struct_vector}{Vector} $\ast$ \hyperlink{_vector_8h_aa5caab17cdcf2ab5530e14e87b8652ac}{Vector}\hypertarget{_vector_8h_aa5caab17cdcf2ab5530e14e87b8652ac}{}\label{_vector_8h_aa5caab17cdcf2ab5530e14e87b8652ac}
+
+\begin{DoxyCompactList}\small\item\em Tipo vector. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{struct_vector}{Vector} \hyperlink{_vector_8h_a1ef210138c3fe5e0433222552dffac9d}{vector\+\_\+new} (double x, double y)
+\begin{DoxyCompactList}\small\item\em Crea un vector/punto con las coodenadas de los parametros. \end{DoxyCompactList}\item 
+double \hyperlink{_vector_8h_afaf2a6a64d5c2f5bdebafc6d0d6eae4f}{Vector\+\_\+get} (\hyperlink{struct_vector}{Vector} v, int t)
+\begin{DoxyCompactList}\small\item\em Obtener las coordenadas de un vector dado. \end{DoxyCompactList}\item 
+\hyperlink{struct_vector}{Vector} \hyperlink{_vector_8h_abb32d1df00e915e8378f266bfd5a7af9}{Vector\+\_\+change} (\hyperlink{struct_vector}{Vector} v, double x, double y)
+\begin{DoxyCompactList}\small\item\em Cambia las coordenadas de un vector. \end{DoxyCompactList}\item 
+\hyperlink{struct_vector}{Vector} \hyperlink{_vector_8h_a393842ee6edd385afda9804bb1a0cd34}{unitary\+\_\+vector} (\hyperlink{struct_vector}{Vector} v)
+\begin{DoxyCompactList}\small\item\em Normaliza un vector(lo pasa a modulo 1) \end{DoxyCompactList}\item 
+\hyperlink{struct_vector}{Vector} \hyperlink{_vector_8h_a4326a5d22be05c1130b8afb9fc906e48}{points2vector} (\hyperlink{struct_vector}{Vector} inicial, \hyperlink{struct_vector}{Vector} fin)
+\begin{DoxyCompactList}\small\item\em Crea el vector que une dos puntos dados. \end{DoxyCompactList}\item 
+double \hyperlink{_vector_8h_a2f3027e8698e156b0936638c64aca00e}{degree2radians} (double degree)
+\begin{DoxyCompactList}\small\item\em Pasa de grados a radianes. \end{DoxyCompactList}\item 
+double \hyperlink{_vector_8h_aa59689de40532f12fa5e7ac7796d3b56}{radians2degree} (double radians)
+\begin{DoxyCompactList}\small\item\em Pasa de radianes a grados. \end{DoxyCompactList}\item 
+\hyperlink{struct_vector}{Vector} \hyperlink{_vector_8h_aa99baac528a42cf8cc7b75e4d469871b}{vector\+\_\+rotate} (\hyperlink{struct_vector}{Vector} inicial, double degree)
+\begin{DoxyCompactList}\small\item\em Rota un vector. \end{DoxyCompactList}\item 
+\hyperlink{struct_vector}{Vector} \hyperlink{_vector_8h_a95d5974685d649ae0802e2fe4c978b40}{vector\+\_\+scale} (\hyperlink{struct_vector}{Vector} inicial, double scale)
+\begin{DoxyCompactList}\small\item\em Escala un vector. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+T\+DA dedicado al calculo vectorial. 
+
+
+
+\subsection{Function Documentation}
+\index{Vector.\+h@{Vector.\+h}!degree2radians@{degree2radians}}
+\index{degree2radians@{degree2radians}!Vector.\+h@{Vector.\+h}}
+\subsubsection[{\texorpdfstring{degree2radians(double degree)}{degree2radians(double degree)}}]{\setlength{\rightskip}{0pt plus 5cm}double degree2radians (
+\begin{DoxyParamCaption}
+\item[{double}]{degree}
+\end{DoxyParamCaption}
+)}\hypertarget{_vector_8h_a2f3027e8698e156b0936638c64aca00e}{}\label{_vector_8h_a2f3027e8698e156b0936638c64aca00e}
+
+
+Pasa de grados a radianes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em degree} & Grados(\+Real). \\
+\hline
+\end{DoxyParams}
+\index{Vector.\+h@{Vector.\+h}!points2vector@{points2vector}}
+\index{points2vector@{points2vector}!Vector.\+h@{Vector.\+h}}
+\subsubsection[{\texorpdfstring{points2vector(\+Vector inicial, Vector fin)}{points2vector(Vector inicial, Vector fin)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vector} points2vector (
+\begin{DoxyParamCaption}
+\item[{{\bf Vector}}]{inicial, }
+\item[{{\bf Vector}}]{fin}
+\end{DoxyParamCaption}
+)}\hypertarget{_vector_8h_a4326a5d22be05c1130b8afb9fc906e48}{}\label{_vector_8h_a4326a5d22be05c1130b8afb9fc906e48}
+
+
+Crea el vector que une dos puntos dados. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em inicial} & Punto inicial(\+Tipo Vector). \\
+\hline
+{\em fin} & Punto final(\+Tipo Vector). \\
+\hline
+\end{DoxyParams}
+\index{Vector.\+h@{Vector.\+h}!radians2degree@{radians2degree}}
+\index{radians2degree@{radians2degree}!Vector.\+h@{Vector.\+h}}
+\subsubsection[{\texorpdfstring{radians2degree(double radians)}{radians2degree(double radians)}}]{\setlength{\rightskip}{0pt plus 5cm}double radians2degree (
+\begin{DoxyParamCaption}
+\item[{double}]{radians}
+\end{DoxyParamCaption}
+)}\hypertarget{_vector_8h_aa59689de40532f12fa5e7ac7796d3b56}{}\label{_vector_8h_aa59689de40532f12fa5e7ac7796d3b56}
+
+
+Pasa de radianes a grados. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em radians} & Radianes(\+Real). \\
+\hline
+\end{DoxyParams}
+\index{Vector.\+h@{Vector.\+h}!unitary\+\_\+vector@{unitary\+\_\+vector}}
+\index{unitary\+\_\+vector@{unitary\+\_\+vector}!Vector.\+h@{Vector.\+h}}
+\subsubsection[{\texorpdfstring{unitary\+\_\+vector(\+Vector v)}{unitary_vector(Vector v)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vector} unitary\+\_\+vector (
+\begin{DoxyParamCaption}
+\item[{{\bf Vector}}]{v}
+\end{DoxyParamCaption}
+)}\hypertarget{_vector_8h_a393842ee6edd385afda9804bb1a0cd34}{}\label{_vector_8h_a393842ee6edd385afda9804bb1a0cd34}
+
+
+Normaliza un vector(lo pasa a modulo 1) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & Vecto a normalizar(\+Tipo Vector). \\
+\hline
+\end{DoxyParams}
+\index{Vector.\+h@{Vector.\+h}!Vector\+\_\+change@{Vector\+\_\+change}}
+\index{Vector\+\_\+change@{Vector\+\_\+change}!Vector.\+h@{Vector.\+h}}
+\subsubsection[{\texorpdfstring{Vector\+\_\+change(\+Vector v, double x, double y)}{Vector_change(Vector v, double x, double y)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vector} Vector\+\_\+change (
+\begin{DoxyParamCaption}
+\item[{{\bf Vector}}]{v, }
+\item[{double}]{x, }
+\item[{double}]{y}
+\end{DoxyParamCaption}
+)}\hypertarget{_vector_8h_abb32d1df00e915e8378f266bfd5a7af9}{}\label{_vector_8h_abb32d1df00e915e8378f266bfd5a7af9}
+
+
+Cambia las coordenadas de un vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Coordenada x(real). \\
+\hline
+{\em y} & Coordenada y(real). \\
+\hline
+\end{DoxyParams}
+\index{Vector.\+h@{Vector.\+h}!Vector\+\_\+get@{Vector\+\_\+get}}
+\index{Vector\+\_\+get@{Vector\+\_\+get}!Vector.\+h@{Vector.\+h}}
+\subsubsection[{\texorpdfstring{Vector\+\_\+get(\+Vector v, int t)}{Vector_get(Vector v, int t)}}]{\setlength{\rightskip}{0pt plus 5cm}double Vector\+\_\+get (
+\begin{DoxyParamCaption}
+\item[{{\bf Vector}}]{v, }
+\item[{int}]{t}
+\end{DoxyParamCaption}
+)}\hypertarget{_vector_8h_afaf2a6a64d5c2f5bdebafc6d0d6eae4f}{}\label{_vector_8h_afaf2a6a64d5c2f5bdebafc6d0d6eae4f}
+
+
+Obtener las coordenadas de un vector dado. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & \hyperlink{struct_vector}{Vector}. \\
+\hline
+{\em t} & La coordenada deseada(0 para la X, 1 para la Y). \\
+\hline
+\end{DoxyParams}
+\index{Vector.\+h@{Vector.\+h}!vector\+\_\+new@{vector\+\_\+new}}
+\index{vector\+\_\+new@{vector\+\_\+new}!Vector.\+h@{Vector.\+h}}
+\subsubsection[{\texorpdfstring{vector\+\_\+new(double x, double y)}{vector_new(double x, double y)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vector} vector\+\_\+new (
+\begin{DoxyParamCaption}
+\item[{double}]{x, }
+\item[{double}]{y}
+\end{DoxyParamCaption}
+)}\hypertarget{_vector_8h_a1ef210138c3fe5e0433222552dffac9d}{}\label{_vector_8h_a1ef210138c3fe5e0433222552dffac9d}
+
+
+Crea un vector/punto con las coodenadas de los parametros. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Coordenada x en real. \\
+\hline
+{\em y} & Coordenada y en real. \\
+\hline
+\end{DoxyParams}
+\index{Vector.\+h@{Vector.\+h}!vector\+\_\+rotate@{vector\+\_\+rotate}}
+\index{vector\+\_\+rotate@{vector\+\_\+rotate}!Vector.\+h@{Vector.\+h}}
+\subsubsection[{\texorpdfstring{vector\+\_\+rotate(\+Vector inicial, double degree)}{vector_rotate(Vector inicial, double degree)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vector} vector\+\_\+rotate (
+\begin{DoxyParamCaption}
+\item[{{\bf Vector}}]{inicial, }
+\item[{double}]{degree}
+\end{DoxyParamCaption}
+)}\hypertarget{_vector_8h_aa99baac528a42cf8cc7b75e4d469871b}{}\label{_vector_8h_aa99baac528a42cf8cc7b75e4d469871b}
+
+
+Rota un vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em inicial} & \hyperlink{struct_vector}{Vector} a rotar. \\
+\hline
+{\em degree} & Angulo a rotar en grados(\+Real). \\
+\hline
+\end{DoxyParams}
+\index{Vector.\+h@{Vector.\+h}!vector\+\_\+scale@{vector\+\_\+scale}}
+\index{vector\+\_\+scale@{vector\+\_\+scale}!Vector.\+h@{Vector.\+h}}
+\subsubsection[{\texorpdfstring{vector\+\_\+scale(\+Vector inicial, double scale)}{vector_scale(Vector inicial, double scale)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vector} vector\+\_\+scale (
+\begin{DoxyParamCaption}
+\item[{{\bf Vector}}]{inicial, }
+\item[{double}]{scale}
+\end{DoxyParamCaption}
+)}\hypertarget{_vector_8h_a95d5974685d649ae0802e2fe4c978b40}{}\label{_vector_8h_a95d5974685d649ae0802e2fe4c978b40}
+
+
+Escala un vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em inicial} & \hyperlink{struct_vector}{Vector} a escalar. \\
+\hline
+{\em scale} & Escala(\+Real). \\
+\hline
+\end{DoxyParams}
