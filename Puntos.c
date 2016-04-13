@@ -34,7 +34,7 @@ Puntuaciones ordenar_puntuaciones(Puntuaciones puntuaciones_array, int longitud)
     return puntuaciones_array;
 }
 
-void leer_puntuaciones() {
+void Puntuaciones_leer() {
     FILE * f = fopen(data_text_puntos,"r");
 
     int longitud = 0;
@@ -60,7 +60,7 @@ void leer_puntuaciones() {
     puntuaciones_num = longitud;
 }
 
-void escribir_puntuaciones(char nombre[26], int puntos) {
+void Puntuaciones_escribir(char nombre[26], int puntos) {
     if(!puntuacion_escrita) {
         puntuacion_escrita = 1;
         FILE * f_o = fopen(data_text_puntos,"a");
@@ -69,18 +69,18 @@ void escribir_puntuaciones(char nombre[26], int puntos) {
     }
 }
 
-int puntos_num() {
+int Puntuaciones_numero() {
     return puntuaciones_num;
 }
 
-char* puntos_array_nombre(int i) {
+char* Puntuaciones_array_nombre(int i) {
     return puntos_array_f[i].nombre;
 }
 
-int puntos_array_puntos(int i) {
+int Puntuaciones_array_puntos(int i) {
     return puntos_array_f[i].puntos;
 }
 
-void liberar_puntos() {
+void Puntuaciones_liberar() {
     free(puntos_array_f);
 }

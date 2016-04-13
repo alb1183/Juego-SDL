@@ -1,29 +1,42 @@
 #include "Listas.h"
 #include <stdlib.h>
 
-NodoPtr crear_cadena() {
-    NodoPtr p = malloc(sizeof(struct Nodo));
+struct Nodo {
+    Lista_Entidad Elemento;
+    struct Nodo* Sig;
+};
+
+Listas_NodoPtr Listas_crear_cadena() {
+    Listas_NodoPtr p = malloc(sizeof(struct Nodo));
     p->Sig = NULL;
 
     return p;
 }
 
-void Insertar_Inicio(NodoPtr p, Entidad e) {
-    NodoPtr aux = malloc(sizeof(struct Nodo));
+void Listas_Insertar_Inicio(Listas_NodoPtr p, Lista_Entidad e) {
+    Listas_NodoPtr aux = malloc(sizeof(struct Nodo));
     aux->Elemento = e;
     aux->Sig = p->Sig;
     p->Sig = aux;
 }
 
-void SuprimeNodo(NodoPtr q) {
-    NodoPtr aux = q->Sig;
+void Listas_SuprimeNodo(Listas_NodoPtr q) {
+    Listas_NodoPtr aux = q->Sig;
     q->Sig = q->Sig->Sig;
     free(aux);
 }
 
-void liberar_cadena(NodoPtr p) {
+Listas_NodoPtr Listas_siguiente(Listas_NodoPtr p) {
+    return p->Sig;
+}
+
+Lista_Entidad* Lista_elemento(Listas_NodoPtr p) {
+    return &(p->Sig->Elemento);
+}
+
+void Listas_liberar_cadena(Listas_NodoPtr p) {
     while(p != NULL) {
-        NodoPtr aux = p;
+        Listas_NodoPtr aux = p;
         p = p->Sig;
         free(aux);
     }

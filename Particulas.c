@@ -65,7 +65,7 @@ void Particulas_dibuja(ParticulaPtr q, int puntos) {
         double pos_x = q->Sig->Elemento.x;
         double pos_y = q->Sig->Elemento.y;
         double radio = q->Sig->Elemento.radio;
-        Vector vel_v = unitary_vector(vector_new(q->Sig->Elemento.vel_x, q->Sig->Elemento.vel_y));
+        Vector vel_v = Vector_unitary(Vector_new(q->Sig->Elemento.vel_x, q->Sig->Elemento.vel_y));
         double pos_x_2 = pos_x + (Vector_get(vel_v, 0) * radio);
         double pos_y_2 = pos_y + (Vector_get(vel_v, 1) * radio);
 

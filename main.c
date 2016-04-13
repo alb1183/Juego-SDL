@@ -133,20 +133,20 @@ void cerrar_juego() {
     gMusicMain = NULL;
 
     // Libero la memoria
-    liberar_puntos();
+    Puntuaciones_liberar();
 }
 
 Vector mouse_vector() {
-    Vector inicial = vector_new(principal.x, principal.y);
-    Vector fin = vector_new(mouse_x, mouse_y);
+    Vector inicial = Vector_new(principal.x, principal.y);
+    Vector fin = Vector_new(mouse_x, mouse_y);
     //fin.x = (mouse_x > principal.x) ? mouse_x : principal.x;
-    return unitary_vector(points2vector(inicial, fin));
+    return Vector_unitary(Vector_points2vector(inicial, fin));
 }
 
 void draw_prota() {
     Vector mouse_v_1 = mouse_vector();
-    Vector mouse_v_2 = vector_rotate(mouse_v_1, 120);
-    Vector mouse_v_3 = vector_rotate(mouse_v_1, -120);
+    Vector mouse_v_2 = Vector_rotate(mouse_v_1, 120);
+    Vector mouse_v_3 = Vector_rotate(mouse_v_1, -120);
 
     int size = 20;
     double size_punta = 1.7;
@@ -162,49 +162,55 @@ void draw_prota() {
 }
 
 
-void disparos(NodoPtr q, NodoPtr e) {
-    while(q->Sig != NULL) {
+void disparos(Listas_NodoPtr q, Listas_NodoPtr e) {
+    while(Listas_siguiente(q) != NULL) {
         Pantalla_ColorRelleno(255,0,0, 255);
-        double radio = q->Sig->Elemento.radio;
-        double pos_x = q->Sig->Elemento.x;
-        double pos_y = q->Sig->Elemento.y;
+
+        Lista_Entidad* elemento = Lista_elemento(q);
+        double radio = elemento->radio;
+        double pos_x = elemento->x;
+        double pos_y = elemento->y;
+        //elemento->dat += 0.2;
+        //Pantalla_DibujaCirculo(pos_x, pos_y+sin(elemento->dat)*10, radio);
         Pantalla_DibujaCirculo(pos_x, pos_y, radio);
-        q->Sig->Elemento.x += q->Sig->Elemento.vel_x;
-        q->Sig->Elemento.y += q->Sig->Elemento.vel_y;
+        elemento->x += elemento->vel_x;
+        elemento->y += elemento->vel_y;
 
         // Salidas
         if(pos_x > pantalla_ancho-radio-10 || pos_x < radio+10 || pos_y > pantalla_alto-radio-10 || pos_y < radio+10) {
-            SuprimeNodo(q);
+            Listas_SuprimeNodo(q);
         } else {
-            NodoPtr r = e;
+            Listas_NodoPtr r = e;
             int choque = 0;
-            while(r->Sig != NULL && !choque) {
-                double radio_e = r->Sig->Elemento.radio;
-                double pos_x_e = r->Sig->Elemento.x;
-                double pos_y_e = r->Sig->Elemento.y;
+            while(Listas_siguiente(r) != NULL && !choque) {
+                Lista_Entidad* elemento_r = Lista_elemento(r);
+                double radio_e = elemento_r->radio;
+                double pos_x_e = elemento_r->x;
+                double pos_y_e = elemento_r->y;
                 double distancia = sqrt(pow(pos_x_e-pos_x, 2) + pow(pos_y_e-pos_y, 2));
                 if(distancia < radio + radio_e) {
-                    SuprimeNodo(r);
-                    SuprimeNodo(q);
+                    Listas_SuprimeNodo(r);
+                    Listas_SuprimeNodo(q);
                     choque = 1;
                     principal.puntos++;
                     Mix_PlayChannel( -1, sound_explosion, 0 );
                 } else {
-                    r = r->Sig;
+                    r = Listas_siguiente(r);
                 }
             }
             if(!choque)
-                q = q->Sig;
+                q = Listas_siguiente(q);
         }
     }
 }
 
-void draw_enemigos(NodoPtr q) {
-    while(q->Sig != NULL) {
-        double radio = q->Sig->Elemento.radio;
-        double pos_x = q->Sig->Elemento.x;
-        double pos_y = q->Sig->Elemento.y;
-        double estado = q->Sig->Elemento.estado;
+void draw_enemigos(Listas_NodoPtr q) {
+    while(Listas_siguiente(q) != NULL) {
+        Lista_Entidad* elemento = Lista_elemento(q);
+        double radio = elemento->radio;
+        double pos_x = elemento->x;
+        double pos_y = elemento->y;
+        double estado = elemento->estado;
         // Color segun el tipo de enemigo
         if(estado == 1)
             Pantalla_ColorRelleno(230,100,0, 255);
@@ -215,21 +221,21 @@ void draw_enemigos(NodoPtr q) {
         else if(estado == 4)
             Pantalla_ColorRelleno(190,0,250, 255);
         Pantalla_DibujaCirculo(pos_x, pos_y, radio);
-        q->Sig->Elemento.x += q->Sig->Elemento.vel_x;
-        q->Sig->Elemento.y += q->Sig->Elemento.vel_y;
+        elemento->x += elemento->vel_x;
+        elemento->y += elemento->vel_y;
         // Tipo de enemigo que persigue al prota
         if(estado == 4) {
-            Vector inicial = vector_new(q->Sig->Elemento.x, q->Sig->Elemento.y);
-            Vector fin = vector_new(principal.x, principal.y);
-            Vector enemigo_v = unitary_vector(points2vector(inicial, fin));
+            Vector inicial = Vector_new(elemento->x, elemento->y);
+            Vector fin = Vector_new(principal.x, principal.y);
+            Vector enemigo_v = Vector_unitary(Vector_points2vector(inicial, fin));
             double vel = 2 + (dificultad/10);
-            q->Sig->Elemento.vel_x = Vector_get(enemigo_v, 0) * vel;
-            q->Sig->Elemento.vel_y = Vector_get(enemigo_v, 1) * vel;
+            elemento->vel_x = Vector_get(enemigo_v, 0) * vel;
+            elemento->vel_y = Vector_get(enemigo_v, 1) * vel;
         }
         // Distancia del objeto al prota
         double distancia = sqrt(pow(pos_x-principal.x, 2) + pow(pos_y-principal.y, 2));
         if(pos_x > pantalla_ancho-radio || pos_x < radio || pos_y > pantalla_alto-radio || pos_y < radio || distancia < (principal.radio+radio)) {
-            SuprimeNodo(q);
+            Listas_SuprimeNodo(q);
             if(distancia < (principal.radio+radio)) {
                 if(estado == 2) {
                     principal.vida++;
@@ -249,14 +255,15 @@ void draw_enemigos(NodoPtr q) {
                 }
             }
         } else {
-            q = q->Sig;
+            q = Listas_siguiente(q);
         }
     }
 }
 
-Entidad crear_disparo(double x, double y) {
-    Entidad disparo;
+Lista_Entidad crear_disparo(double x, double y) {
+    Lista_Entidad disparo;
     disparo.estado = 1;
+    disparo.dat= 0;
     disparo.radio = 3;
 
     Vector mouse_v = mouse_vector();
@@ -272,8 +279,8 @@ Entidad crear_disparo(double x, double y) {
     return disparo;
 }
 
-Entidad crear_enemigo_pos() {
-    Entidad enemigo;
+Lista_Entidad crear_enemigo_pos() {
+    Lista_Entidad enemigo;
     if(round(rand()%15) == 1) {
         enemigo.estado = 2;
         enemigo.radio = 5;
@@ -305,9 +312,9 @@ Entidad crear_enemigo_pos() {
         inicial_y = pantalla_alto-enemigo.radio-1;
     }
 
-    Vector inicial = vector_new(inicial_x, inicial_y);
-    Vector fin = vector_new(principal.x, principal.y);
-    Vector enemigo_v = unitary_vector(points2vector(inicial, fin));
+    Vector inicial = Vector_new(inicial_x, inicial_y);
+    Vector fin = Vector_new(principal.x, principal.y);
+    Vector enemigo_v = Vector_unitary(Vector_points2vector(inicial, fin));
 
     enemigo.x = inicial_x;
     enemigo.y = inicial_y;
@@ -346,10 +353,10 @@ void draw_info() {
     Pantalla_DibujaRectangulo(75, 70, 5+((principal.escudo_c / 400.0) * 95.0), 15);
 }
 
-void crear_enemigo(NodoPtr p, int count) {
+void crear_enemigo(Listas_NodoPtr p, int count) {
     if(count == 0) {
-        Entidad enemigo = crear_enemigo_pos();
-        Insertar_Inicio(p, enemigo);
+        Lista_Entidad enemigo = crear_enemigo_pos();
+        Listas_Insertar_Inicio(p, enemigo);
     }
 }
 
@@ -358,11 +365,11 @@ void draw_mouse(double x, double y) {
         Pantalla_DibujaCirculo(x, y, 2);
 }
 
-void habilidades(NodoPtr Cadena_disparos, int tipo) {
+void habilidades(Listas_NodoPtr Cadena_disparos, int tipo) {
     if(tipo == 1) {
         if(principal.explosiones > 0) {
             for(int i = 1; i <= 24; i++) {
-                Entidad disparo;
+                Lista_Entidad disparo;
                 disparo.estado = 1;
                 disparo.radio = 3;
 
@@ -376,7 +383,7 @@ void habilidades(NodoPtr Cadena_disparos, int tipo) {
                 disparo.vel_x = factor_x * vel;
                 disparo.vel_y = factor_y * vel;
 
-                Insertar_Inicio(Cadena_disparos, disparo);
+                Listas_Insertar_Inicio(Cadena_disparos, disparo);
             }
             if(partida_modo == 0)
                 principal.explosiones--;
@@ -387,7 +394,7 @@ void habilidades(NodoPtr Cadena_disparos, int tipo) {
             for(int k = 0; k <= 1; k++) {
                 for(int j = 1; j <= 5; j++) {
                     for(int i = 1; i <= 24; i++) {
-                        Entidad disparo;
+                        Lista_Entidad disparo;
                         disparo.estado = 1;
                         disparo.radio = 3;
 
@@ -401,7 +408,7 @@ void habilidades(NodoPtr Cadena_disparos, int tipo) {
                         disparo.vel_x = factor_x * vel;
                         disparo.vel_y = factor_y * vel;
 
-                        Insertar_Inicio(Cadena_disparos, disparo);
+                        Listas_Insertar_Inicio(Cadena_disparos, disparo);
                     }
                 }
             }
@@ -439,11 +446,17 @@ int main(int argc, char **argv)
     int mouse_pulsado = 0;
     int tecla_pulsada = 0;
     inicializar_juego();
-    NodoPtr Cadena_disparos = crear_cadena();
-    NodoPtr Cadena_enemigos = crear_cadena();
+    Listas_NodoPtr Cadena_disparos = Listas_crear_cadena();
+    Listas_NodoPtr Cadena_enemigos = Listas_crear_cadena();
     ParticulaPtr Cadena_particulas = Particulas_cadena(pantalla_alto, pantalla_ancho);
-    TrianguloPtr Sierpinski_1 = crear_triangulo(NULL, Punto_crea(4, 460), Punto_crea(224, 20), Punto_crea(444, 460), 1);
-    TrianguloPtr Sierpinski_2 = crear_triangulo(NULL, Punto_crea(844, 20), Punto_crea(624, 460), Punto_crea(404, 20), 1);
+    Sierpinski_TrianguloPtr Sierpinski_1 = Sierpinski_crear_triangulo(NULL,
+                                                                      Sierpinski_Punto_crea(4, 460),
+                                                                      Sierpinski_Punto_crea(224, 20),
+                                                                      Sierpinski_Punto_crea(444, 460), 1);
+    Sierpinski_TrianguloPtr Sierpinski_2 = Sierpinski_crear_triangulo(NULL,
+                                                                      Sierpinski_Punto_crea(844, 20),
+                                                                      Sierpinski_Punto_crea(624, 460),
+                                                                      Sierpinski_Punto_crea(404, 20), 1);
 
     while (Pantalla_Activa() && !terminado) {
         Pantalla_DibujaRellenoFondo(180, 180, 180, 255);
@@ -458,8 +471,8 @@ int main(int argc, char **argv)
             Pantalla_DibujaTexto("Menu", 300, 30);
             Pantalla_DibujaLinea(295, 45, 340, 45);
 
-            grow_triangulo(Sierpinski_1, Sierpinski_1);
-            grow_triangulo(Sierpinski_2, Sierpinski_2);
+            Sierpinski_grow_triangulo(Sierpinski_1, Sierpinski_1);
+            Sierpinski_grow_triangulo(Sierpinski_2, Sierpinski_2);
 
             // Algoritmo para el menu
             for(int i = 0; i < menu_num; i++) {
@@ -516,8 +529,8 @@ int main(int argc, char **argv)
             // Controles - Start
             if(Pantalla_RatonBotonPulsado(SDL_BUTTON_LEFT)) {
                 if(!mouse_pulsado) {
-                    Entidad disparo = crear_disparo(mouse_x, mouse_y);
-                    Insertar_Inicio(Cadena_disparos, disparo);
+                    Lista_Entidad disparo = crear_disparo(mouse_x, mouse_y);
+                    Listas_Insertar_Inicio(Cadena_disparos, disparo);
                     Mix_PlayChannel( -1, sound_disparo, 0 );
                 }
 
@@ -543,23 +556,23 @@ int main(int argc, char **argv)
 
             if (Pantalla_TeclaPulsada(SDL_SCANCODE_LEFT) || Pantalla_TeclaPulsada(SDL_SCANCODE_A)) {
                 principal.x -= mov_speed;
-                if(principal.x < 0)
-                    principal.x = 0;
+                if(principal.x < principal.radio)
+                    principal.x = principal.radio;
             }
             if (Pantalla_TeclaPulsada(SDL_SCANCODE_RIGHT) || Pantalla_TeclaPulsada(SDL_SCANCODE_D)) {
                 principal.x += mov_speed;
-                if(principal.x > pantalla_ancho)
-                    principal.x = pantalla_ancho;
+                if(principal.x > pantalla_ancho-principal.radio)
+                    principal.x = pantalla_ancho-principal.radio;
             }
             if (Pantalla_TeclaPulsada(SDL_SCANCODE_UP) || Pantalla_TeclaPulsada(SDL_SCANCODE_W)) {
                 principal.y -= mov_speed;
-                if(principal.y < 0)
-                    principal.y = 0;
+                if(principal.y < principal.radio)
+                    principal.y = principal.radio;
             }
             if (Pantalla_TeclaPulsada(SDL_SCANCODE_DOWN) || Pantalla_TeclaPulsada(SDL_SCANCODE_S)) {
                 principal.y += mov_speed;
-                if(principal.y > pantalla_alto)
-                    principal.y = pantalla_alto;
+                if(principal.y > pantalla_alto-principal.radio)
+                    principal.y = pantalla_alto-principal.radio;
             }
 
             // Teclas trampa xD
@@ -610,12 +623,12 @@ int main(int argc, char **argv)
 
         } else if(partida_estado == 1) {
             // Juego Ganado
-            escribir_puntuaciones(principal.nombre, principal.puntos);
+            Puntuaciones_escribir(principal.nombre, principal.puntos);
             Pantalla_DibujaTexto("Has ganado!!", pantalla_ancho/2-80, pantalla_alto/2-5);
         } else if(partida_estado == 2) {
             // Juego Perdido
-            escribir_puntuaciones(principal.nombre, principal.puntos);
-            leer_puntuaciones(); // TODO: Leo las puntuaciones
+            Puntuaciones_escribir(principal.nombre, principal.puntos);
+            Puntuaciones_leer(); // TODO: Leo las puntuaciones
             Pantalla_ColorTrazo(0,0,255, 255);
             Pantalla_DibujaTexto("Has perdido!! D:", pantalla_ancho/2-80, 30);
             char string_puntos[32];
@@ -623,13 +636,13 @@ int main(int argc, char **argv)
             Pantalla_DibujaTexto(string_puntos, pantalla_ancho/2-80, 45);
             Pantalla_DibujaTexto("Puntuaciones de otros jugadores:", pantalla_ancho/2-85, 70);
 
-            for(int i = 0; i < puntos_num(); i++) {
+            for(int i = 0; i < Puntuaciones_numero(); i++) {
                 char string_puntos_t[32];
-                if(strcmp(puntos_array_nombre(i), principal.nombre) == 0)
+                if(strcmp(Puntuaciones_array_nombre(i), principal.nombre) == 0)
                     Pantalla_ColorTrazo(255,60,30, 255);
                 else
                     Pantalla_ColorTrazo(30,150,255, 255);
-                sprintf(string_puntos_t, "%s: %d", puntos_array_nombre(i), puntos_array_puntos(i));
+                sprintf(string_puntos_t, "%s: %d", Puntuaciones_array_nombre(i), Puntuaciones_array_puntos(i));
                 Pantalla_DibujaTexto(string_puntos_t, pantalla_ancho/2-80, 90 + (i*15));
 
             }
@@ -657,8 +670,8 @@ int main(int argc, char **argv)
     }
     Pantalla_Libera();
     cerrar_juego();
-    liberar_cadena(Cadena_disparos);
-    liberar_cadena(Cadena_enemigos);
+    Listas_liberar_cadena(Cadena_disparos);
+    Listas_liberar_cadena(Cadena_enemigos);
     Particulas_libera(Cadena_particulas);
 
     return 0;
