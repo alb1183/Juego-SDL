@@ -36,6 +36,10 @@
 			<Add option="-lmingw32 -lSDL2main -lSDL2" />
 			<Add library="lib/libSDL2_mixer.dll.a" />
 		</Linker>
+		<Unit filename="Buscaminas.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Buscaminas.h" />
 		<Unit filename="Listas.c">
 			<Option compilerVar="CC" />
 		</Unit>

@@ -14,6 +14,7 @@
 #include "Puntos.h"
 #include "Particulas.h"
 #include "Sierpinski.h"
+#include "Buscaminas.h"
 
 // Estructuras
 struct Protagonista {
@@ -34,14 +35,15 @@ int pantalla_ancho = 848;
 int pantalla_alto = 480;
 int timer_count = 0;
 int dificultad = 0;
-int partida_estado = -1;
+int juego = 0; // Variable de juego
+int partida_estado = -1; // Variable del estado del juego actual
 int partida_modo = 0;
 int menu_status = 0;
 int escudo_permitido = 1;
 
 // Constantes
-const int menu_num = 3;
-char* menu_opciones[3] = { "Jugar", "Sandbox" ,"Salir" };
+const int menu_num = 4;
+char* menu_opciones[4] = { "Jugar", "Sandbox", "Buscaminas" ,"Salir" };
 const char* data_music_main = "Datos/Musica/main.wav";
 const char* data_music_menu = "Datos/Musica/menu.wav";
 const char* data_sound_disparo = "Datos/Sonidos/beep38.wav";
@@ -427,6 +429,35 @@ void escudo_run() {
         principal.escudo_c++;
 }
 
+/*void menu_background_clean(int fondo_array[60][106]) {
+	for(int i = 0; i < 60; i++) {
+        for(int j = 0; j < 106; j++) {
+            fondo_array[i][j] = 0;
+        }
+	}
+}
+
+void menu_background_grow(int fondo_array[60][106], int nivel, int x, int y) {
+    if(x >= 0 && x < 106 && y >= 0 && y < 60) {
+        if(fondo_array[y][x] == 0) {
+            printf("%d;%d;%d;\n", nivel,x,y);
+            fondo_array[y][x] = round(nivel / 1786.0);
+
+
+            menu_background_grow(fondo_array, nivel+1, x-1, y-1);
+            menu_background_grow(fondo_array, nivel+1, x, y-1);
+            menu_background_grow(fondo_array, nivel+1, x+1, y-1);
+
+            menu_background_grow(fondo_array, nivel+1, x-1, y);
+            menu_background_grow(fondo_array, nivel+1, x+1, y);
+
+            menu_background_grow(fondo_array, nivel+1, x-1, y+1);
+            menu_background_grow(fondo_array, nivel+1, x, y+1);
+            menu_background_grow(fondo_array, nivel+1, x+1, y+1);
+        }
+    }
+}*/
+
 int main(int argc, char **argv)
 {
     srand(time(NULL));
@@ -463,9 +494,18 @@ int main(int argc, char **argv)
         Pantalla_RatonCoordenadas(&mouse_x, &mouse_y);
         ftime(&start);
 
+        if(juego == 0) {
+            // Dibujo el fondo
+            Pantalla_ColorTrazo(0, 0, 0, 0);
+            int scale = 4;
+            for(int i = 0; i < pantalla_alto/scale; i++) {
+                for(int j = 0; j < pantalla_ancho/scale; j++) {
+                    //Pantalla_ColorRelleno(100, 130, 100, (i*i*j*j)%256);
+                    Pantalla_ColorRelleno(150, 150, 150, (i*i*j*j)%256);
+                    Pantalla_DibujaRectangulo(j*scale,i*scale, scale,scale);
+                }
+            }
 
-        // Juego iniciado
-        if(partida_estado == -1) {
             //Menu
             Pantalla_ColorTrazo(0,0,255, 255);
             Pantalla_DibujaTexto("Menu", 300, 30);
@@ -481,7 +521,7 @@ int main(int argc, char **argv)
                 else
                     Pantalla_ColorTrazo(0,0,255, 255);
 
-                Pantalla_DibujaTexto(menu_opciones[i], 310+(i*15), 50 + (18*i));
+                Pantalla_DibujaTexto(menu_opciones[i], 310+(i*10), 50 + (18*i));
             }
             // Control del menu
             if(Pantalla_TeclaPulsada(SDL_SCANCODE_UP) || Pantalla_TeclaPulsada(SDL_SCANCODE_W)) {
@@ -496,16 +536,24 @@ int main(int argc, char **argv)
                 if(!tecla_pulsada) {
                         switch(menu_status) {
                            case 0:
+                              juego = 1;
                               partida_estado = 0;
                               partida_modo = 0;
                               Mix_PlayMusic( gMusicMain, -1 );
                               break;
                            case 1:
+                              juego = 1;
                               partida_estado = 0;
                               partida_modo = 1;
                               Mix_PlayMusic( gMusicMain, -1 );
                               break;
                            case 2:
+                              juego = 2; // Buscaminas
+                              partida_estado = 0;
+                              partida_modo = 0;
+                              Buscaminas_iniciar();
+                              break;
+                           case 3:
                               terminado = 1;
                               break;
                         }
@@ -514,144 +562,150 @@ int main(int argc, char **argv)
             }else{
                 tecla_pulsada = 0;
             }
-
-        }else if(partida_estado == 0) {
-            // Juego
-            if(partida_modo == 0) {
-                crear_enemigo(Cadena_enemigos, timer_count);
-                if(principal.puntos >= 200)
-                    principal.puntos = 199; // TODO: Lo pongo por si acaso
-                dificultad = round(principal.puntos/2);
-                timer_count = (timer_count+1) % (100-dificultad); // Cada ciclo son 15ms
-            }
-
-
-            // Controles - Start
-            if(Pantalla_RatonBotonPulsado(SDL_BUTTON_LEFT)) {
-                if(!mouse_pulsado) {
-                    Lista_Entidad disparo = crear_disparo(mouse_x, mouse_y);
-                    Listas_Insertar_Inicio(Cadena_disparos, disparo);
-                    Mix_PlayChannel( -1, sound_disparo, 0 );
+        } else if(juego == 1) {
+            if(partida_estado == 0) {
+                // Juego
+                if(partida_modo == 0) {
+                    crear_enemigo(Cadena_enemigos, timer_count);
+                    if(principal.puntos >= 200)
+                        principal.puntos = 199; // TODO: Lo pongo por si acaso
+                    dificultad = round(principal.puntos/2);
+                    timer_count = (timer_count+1) % (100-dificultad); // Cada ciclo son 15ms
                 }
 
-                mouse_pulsado = 1;
-            }else{
-                mouse_pulsado = 0;
-            }
-            if(Pantalla_RatonBotonPulsado(SDL_BUTTON_RIGHT)) {
-                if(escudo_permitido) {
-                    if(principal.escudo_c >= 4) {
-                        principal.escudo_c -= 4;
-                        principal.escudo_s = 1;
-                    }else{
-                        principal.escudo_s = 0;
-                        escudo_permitido = 0;
+
+                // Controles - Start
+                if(Pantalla_RatonBotonPulsado(SDL_BUTTON_LEFT)) {
+                    if(!mouse_pulsado) {
+                        Lista_Entidad disparo = crear_disparo(mouse_x, mouse_y);
+                        Listas_Insertar_Inicio(Cadena_disparos, disparo);
+                        Mix_PlayChannel( -1, sound_disparo, 0 );
                     }
+
+                    mouse_pulsado = 1;
+                }else{
+                    mouse_pulsado = 0;
                 }
-            }else{
-                principal.escudo_s = 0;
-                if(principal.escudo_c >= 100)
-                    escudo_permitido = 1;
-            }
+                if(Pantalla_RatonBotonPulsado(SDL_BUTTON_RIGHT)) {
+                    if(escudo_permitido) {
+                        if(principal.escudo_c >= 4) {
+                            principal.escudo_c -= 4;
+                            principal.escudo_s = 1;
+                        }else{
+                            principal.escudo_s = 0;
+                            escudo_permitido = 0;
+                        }
+                    }
+                }else{
+                    principal.escudo_s = 0;
+                    if(principal.escudo_c >= 100)
+                        escudo_permitido = 1;
+                }
 
-            if (Pantalla_TeclaPulsada(SDL_SCANCODE_LEFT) || Pantalla_TeclaPulsada(SDL_SCANCODE_A)) {
-                principal.x -= mov_speed;
-                if(principal.x < principal.radio)
-                    principal.x = principal.radio;
-            }
-            if (Pantalla_TeclaPulsada(SDL_SCANCODE_RIGHT) || Pantalla_TeclaPulsada(SDL_SCANCODE_D)) {
-                principal.x += mov_speed;
-                if(principal.x > pantalla_ancho-principal.radio)
-                    principal.x = pantalla_ancho-principal.radio;
-            }
-            if (Pantalla_TeclaPulsada(SDL_SCANCODE_UP) || Pantalla_TeclaPulsada(SDL_SCANCODE_W)) {
-                principal.y -= mov_speed;
-                if(principal.y < principal.radio)
-                    principal.y = principal.radio;
-            }
-            if (Pantalla_TeclaPulsada(SDL_SCANCODE_DOWN) || Pantalla_TeclaPulsada(SDL_SCANCODE_S)) {
-                principal.y += mov_speed;
-                if(principal.y > pantalla_alto-principal.radio)
-                    principal.y = pantalla_alto-principal.radio;
-            }
+                if (Pantalla_TeclaPulsada(SDL_SCANCODE_LEFT) || Pantalla_TeclaPulsada(SDL_SCANCODE_A)) {
+                    principal.x -= mov_speed;
+                    if(principal.x < principal.radio)
+                        principal.x = principal.radio;
+                }
+                if (Pantalla_TeclaPulsada(SDL_SCANCODE_RIGHT) || Pantalla_TeclaPulsada(SDL_SCANCODE_D)) {
+                    principal.x += mov_speed;
+                    if(principal.x > pantalla_ancho-principal.radio)
+                        principal.x = pantalla_ancho-principal.radio;
+                }
+                if (Pantalla_TeclaPulsada(SDL_SCANCODE_UP) || Pantalla_TeclaPulsada(SDL_SCANCODE_W)) {
+                    principal.y -= mov_speed;
+                    if(principal.y < principal.radio)
+                        principal.y = principal.radio;
+                }
+                if (Pantalla_TeclaPulsada(SDL_SCANCODE_DOWN) || Pantalla_TeclaPulsada(SDL_SCANCODE_S)) {
+                    principal.y += mov_speed;
+                    if(principal.y > pantalla_alto-principal.radio)
+                        principal.y = pantalla_alto-principal.radio;
+                }
 
-            // Teclas trampa xD
-            if (Pantalla_TeclaPulsada(SDL_SCANCODE_Z)) {
-                principal.puntos += 5;
+                // Teclas trampa xD
+                if (Pantalla_TeclaPulsada(SDL_SCANCODE_Z)) {
+                    principal.puntos += 5;
+                }
+                if (Pantalla_TeclaPulsada(SDL_SCANCODE_X)) {
+                    principal.explosiones += 1;
+                }
+                if (Pantalla_TeclaPulsada(SDL_SCANCODE_C)) {
+                    principal.vida += 1;
+                }
+                if (Pantalla_TeclaPulsada(SDL_SCANCODE_V)) {
+                    principal.megaexplosiones += 1;
+                }
+
+                if(Pantalla_TeclaPulsada(SDL_SCANCODE_Q)) {
+                    if(!tecla_pulsada)
+                        habilidades(Cadena_disparos, 1);
+                    tecla_pulsada = 1;
+                }else if(Pantalla_TeclaPulsada(SDL_SCANCODE_E)) {
+                    if(!tecla_pulsada)
+                        habilidades(Cadena_disparos, 2);
+                    tecla_pulsada = 1;
+                }else{
+                    tecla_pulsada = 0;
+                }
+
+                // Controles - End
+
+                // Comprobaciones - Start
+                escudo_run();
+                for(int i = 0; i < 5; i++) // Creo 5 particulas por ciclo
+                    Particulas_crear(Cadena_particulas, 0, principal.puntos);
+                disparos(Cadena_disparos, Cadena_enemigos);
+                if(principal.puntos >= 200 && partida_modo == 0)
+                    partida_estado = 1;
+                // Comprobaciones - End
+
+
+                // Dibujado
+                draw_prota();
+                draw_info();
+                Particulas_dibuja(Cadena_particulas, principal.puntos);
+                if(partida_modo == 0)
+                    draw_enemigos(Cadena_enemigos);
+
+            } else if(partida_estado == 1) {
+                // Juego Ganado
+                Puntuaciones_escribir(principal.nombre, principal.puntos);
+                Pantalla_DibujaTexto("Has ganado!!", pantalla_ancho/2-80, pantalla_alto/2-5);
+            } else if(partida_estado == 2) {
+                // Juego Perdido
+                Puntuaciones_escribir(principal.nombre, principal.puntos);
+                Puntuaciones_leer(); // TODO: Leo las puntuaciones
+                Pantalla_ColorTrazo(0,0,255, 255);
+                Pantalla_DibujaTexto("Has perdido!! D:", pantalla_ancho/2-80, 30);
+                char string_puntos[32];
+                sprintf(string_puntos, "Puntuacion: %d", principal.puntos);
+                Pantalla_DibujaTexto(string_puntos, pantalla_ancho/2-80, 45);
+                Pantalla_DibujaTexto("Puntuaciones de otros jugadores:", pantalla_ancho/2-85, 70);
+
+                for(int i = 0; i < Puntuaciones_numero(); i++) {
+                    char string_puntos_t[32];
+                    if(strcmp(Puntuaciones_array_nombre(i), principal.nombre) == 0)
+                        Pantalla_ColorTrazo(255,60,30, 255);
+                    else
+                        Pantalla_ColorTrazo(30,150,255, 255);
+                    sprintf(string_puntos_t, "%s: %d", Puntuaciones_array_nombre(i), Puntuaciones_array_puntos(i));
+                    Pantalla_DibujaTexto(string_puntos_t, pantalla_ancho/2-80, 90 + (i*15));
+
+                }
+
             }
-            if (Pantalla_TeclaPulsada(SDL_SCANCODE_X)) {
-                principal.explosiones += 1;
-            }
-            if (Pantalla_TeclaPulsada(SDL_SCANCODE_C)) {
-                principal.vida += 1;
-            }
-            if (Pantalla_TeclaPulsada(SDL_SCANCODE_V)) {
-                principal.megaexplosiones += 1;
-            }
-
-            if(Pantalla_TeclaPulsada(SDL_SCANCODE_Q)) {
-                if(!tecla_pulsada)
-                    habilidades(Cadena_disparos, 1);
-                tecla_pulsada = 1;
-            }else if(Pantalla_TeclaPulsada(SDL_SCANCODE_E)) {
-                if(!tecla_pulsada)
-                    habilidades(Cadena_disparos, 2);
-                tecla_pulsada = 1;
-            }else{
-                tecla_pulsada = 0;
-            }
-
-            // Controles - End
-
-            // Comprobaciones - Start
-            escudo_run();
-            for(int i = 0; i < 5; i++) // Creo 5 particulas por ciclo
-                Particulas_crear(Cadena_particulas, 0, principal.puntos);
-            disparos(Cadena_disparos, Cadena_enemigos);
-            if(principal.puntos >= 200 && partida_modo == 0)
-                partida_estado = 1;
-            // Comprobaciones - End
-
-
-            // Dibujado
-            draw_prota();
-            draw_info();
-            Particulas_dibuja(Cadena_particulas, principal.puntos);
-            if(partida_modo == 0)
-                draw_enemigos(Cadena_enemigos);
-            draw_mouse(mouse_x, mouse_y);
-
-        } else if(partida_estado == 1) {
-            // Juego Ganado
-            Puntuaciones_escribir(principal.nombre, principal.puntos);
-            Pantalla_DibujaTexto("Has ganado!!", pantalla_ancho/2-80, pantalla_alto/2-5);
-        } else if(partida_estado == 2) {
-            // Juego Perdido
-            Puntuaciones_escribir(principal.nombre, principal.puntos);
-            Puntuaciones_leer(); // TODO: Leo las puntuaciones
-            Pantalla_ColorTrazo(0,0,255, 255);
-            Pantalla_DibujaTexto("Has perdido!! D:", pantalla_ancho/2-80, 30);
-            char string_puntos[32];
-            sprintf(string_puntos, "Puntuacion: %d", principal.puntos);
-            Pantalla_DibujaTexto(string_puntos, pantalla_ancho/2-80, 45);
-            Pantalla_DibujaTexto("Puntuaciones de otros jugadores:", pantalla_ancho/2-85, 70);
-
-            for(int i = 0; i < Puntuaciones_numero(); i++) {
-                char string_puntos_t[32];
-                if(strcmp(Puntuaciones_array_nombre(i), principal.nombre) == 0)
-                    Pantalla_ColorTrazo(255,60,30, 255);
-                else
-                    Pantalla_ColorTrazo(30,150,255, 255);
-                sprintf(string_puntos_t, "%s: %d", Puntuaciones_array_nombre(i), Puntuaciones_array_puntos(i));
-                Pantalla_DibujaTexto(string_puntos_t, pantalla_ancho/2-80, 90 + (i*15));
-
-            }
-
+        }else if(juego == 2) {
+            Buscaminas_loop();
+            Buscaminas_draw();
         }
 
         if (Pantalla_TeclaPulsada(SDL_SCANCODE_ESCAPE)) {
-            terminado = 1;
+            juego = 0;
+            //terminado = 1;
         }
+
+        draw_mouse(mouse_x, mouse_y);
 
         ftime(&end);
         diff = (int) (1000.0 * (end.time - start.time) + (end.millitm - start.millitm));

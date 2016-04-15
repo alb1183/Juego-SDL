@@ -1159,13 +1159,13 @@
 	<stdlib.h>
 	<math.h>
 
-1459180857 source:c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\listas.c
+1460447617 source:c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\listas.c
 	"Listas.h"
 	<stdlib.h>
 
-1459180856 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\listas.h
+1460448435 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\listas.h
 
-1458502569 source:c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\main.c
+1460757998 source:c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\main.c
 	<stdlib.h>
 	<math.h>
 	<stdio.h>
@@ -1180,8 +1180,9 @@
 	"Puntos.h"
 	"Particulas.h"
 	"Sierpinski.h"
+	"Buscaminas.h"
 
-1451805391 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_mixer.h
+1459149788 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_mixer.h
 	"SDL_stdinc.h"
 	"SDL_rwops.h"
 	"SDL_audio.h"
@@ -1190,7 +1191,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1451768293 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_stdinc.h
+1459149788 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_stdinc.h
 	"SDL_config.h"
 	<sys/types.h>
 	<stdio.h>
@@ -1219,32 +1220,32 @@
 	<stdlib.h>
 	"close_code.h"
 
-1451768293 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_config.h
+1459149788 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_config.h
 	"SDL_platform.h"
 
-1451768293 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_platform.h
+1459149788 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_platform.h
 	"AvailabilityMacros.h"
 	"TargetConditionals.h"
 	<winapifamily.h>
 	"begin_code.h"
 	"close_code.h"
 
-1451768293 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\begin_code.h
+1459149788 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\begin_code.h
 
-1451768293 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\close_code.h
+1459149788 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\close_code.h
 
-1451768293 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_rwops.h
+1459149788 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_rwops.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1451768293 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_error.h
+1459149788 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_error.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1451768293 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_audio.h
+1459149788 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_audio.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_endian.h"
@@ -1254,19 +1255,19 @@
 	"begin_code.h"
 	"close_code.h"
 
-1451768293 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_endian.h
+1459149788 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_endian.h
 	"SDL_stdinc.h"
 	<endian.h>
 	"begin_code.h"
 	"close_code.h"
 
-1451768293 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_mutex.h
+1459149788 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_mutex.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1451768293 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_thread.h
+1459149788 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_thread.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_atomic.h"
@@ -1275,22 +1276,22 @@
 	<process.h>
 	"close_code.h"
 
-1451768293 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_atomic.h
+1459149788 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_atomic.h
 	"SDL_stdinc.h"
 	"SDL_platform.h"
 	"begin_code.h"
 	<mbarrier.h>
 	"close_code.h"
 
-1451768293 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_version.h
+1459149788 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_version.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1456503234 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\pantalla.h
+1459149788 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\pantalla.h
 	"SDL2/SDL.h"
 
-1451768293 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl.h
+1459149788 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl.h
 	"SDL_main.h"
 	"SDL_stdinc.h"
 	"SDL_assert.h"
@@ -1321,23 +1322,23 @@
 	"begin_code.h"
 	"close_code.h"
 
-1451768293 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_main.h
+1459149788 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_main.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1451768293 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_assert.h
+1459149788 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_assert.h
 	"SDL_config.h"
 	"begin_code.h"
 	<signal.h>
 	"close_code.h"
 
-1451768293 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_clipboard.h
+1459149788 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_clipboard.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1451768293 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_cpuinfo.h
+1459149788 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_cpuinfo.h
 	"SDL_stdinc.h"
 	<intrin.h>
 	<intrin.h>
@@ -1349,7 +1350,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1451768293 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_events.h
+1459149788 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_events.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_video.h"
@@ -1363,7 +1364,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1451768293 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_video.h
+1459149788 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_video.h
 	"SDL_stdinc.h"
 	"SDL_pixels.h"
 	"SDL_rect.h"
@@ -1371,12 +1372,12 @@
 	"begin_code.h"
 	"close_code.h"
 
-1451768293 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_pixels.h
+1459149788 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_pixels.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1451768293 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_rect.h
+1459149788 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_rect.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_pixels.h"
@@ -1384,7 +1385,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1451768293 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_surface.h
+1459149788 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_surface.h
 	"SDL_stdinc.h"
 	"SDL_pixels.h"
 	"SDL_rect.h"
@@ -1393,11 +1394,11 @@
 	"begin_code.h"
 	"close_code.h"
 
-1451768293 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_blendmode.h
+1459149788 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_blendmode.h
 	"begin_code.h"
 	"close_code.h"
 
-1451768293 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_keyboard.h
+1459149788 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_keyboard.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_keycode.h"
@@ -1405,27 +1406,27 @@
 	"begin_code.h"
 	"close_code.h"
 
-1451768293 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_keycode.h
+1459149788 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_keycode.h
 	"SDL_stdinc.h"
 	"SDL_scancode.h"
 
-1451768293 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_scancode.h
+1459149788 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_scancode.h
 	"SDL_stdinc.h"
 
-1451768293 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_mouse.h
+1459149788 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_mouse.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
 
-1451768293 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_joystick.h
+1459149788 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_joystick.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1451768293 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_gamecontroller.h
+1459149788 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_gamecontroller.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_rwops.h"
@@ -1433,11 +1434,11 @@
 	"begin_code.h"
 	"close_code.h"
 
-1451768293 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_quit.h
+1459149788 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_quit.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 
-1451768293 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_gesture.h
+1459149788 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_gesture.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_video.h"
@@ -1445,60 +1446,60 @@
 	"begin_code.h"
 	"close_code.h"
 
-1451768293 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_touch.h
+1459149788 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_touch.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
 
-1451768293 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_filesystem.h
+1459149788 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_filesystem.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1451768293 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_haptic.h
+1459149788 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_haptic.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_joystick.h"
 	"begin_code.h"
 	"close_code.h"
 
-1451768293 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_hints.h
+1459149788 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_hints.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1451768293 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_loadso.h
+1459149788 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_loadso.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1451768293 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_log.h
+1459149788 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_log.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1451768293 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_messagebox.h
+1459149788 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_messagebox.h
 	"SDL_stdinc.h"
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
 
-1451768293 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_power.h
+1459149788 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_power.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1451768293 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_render.h
+1459149788 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_render.h
 	"SDL_stdinc.h"
 	"SDL_rect.h"
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
 
-1451768293 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_system.h
+1459149788 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_system.h
 	"SDL_stdinc.h"
 	"SDL_keyboard.h"
 	"SDL_render.h"
@@ -1506,49 +1507,49 @@
 	"begin_code.h"
 	"close_code.h"
 
-1451768293 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_timer.h
+1459149788 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sdl2\sdl_timer.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1458499014 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\vector.h
+1460446037 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\vector.h
 
-1458499305 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\puntos.h
+1460445506 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\puntos.h
 
-1459181369 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\particulas.h
+1460445066 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\particulas.h
 
-1459181627 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sierpinski.h
+1460445688 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sierpinski.h
 
-1456503082 source:c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\pantalla.c
+1459149788 source:c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\pantalla.c
 	"Pantalla.h"
 	<stdlib.h>
 	<signal.h>
 	<stdio.h>
 	<math.h>
 
-1458500622 source:c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\particulas.c
+1460446064 source:c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\particulas.c
 	"Particulas.h"
 	"Pantalla.h"
 	"Vector.h"
 	<stdlib.h>
 	<math.h>
 
-1458499306 source:c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\puntos.c
+1460445506 source:c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\puntos.c
 	"Puntos.h"
 	<stdlib.h>
 	<stdio.h>
 	<string.h>
 
-1456443947 source:c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\resource.rc
+1459149788 source:c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\resource.rc
 
-1458501862 source:c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sierpinski.c
+1460446473 source:c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sierpinski.c
 	"Sierpinski.h"
 	"Pantalla.h"
 	<stdlib.h>
 	<math.h>
 
-1458498580 source:c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\vector.c
+1460446037 source:c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\vector.c
 	"Vector.h"
 	<stdlib.h>
 	<math.h>
@@ -1946,4 +1947,11 @@
 	"Pantalla.h"
 	<stdlib.h>
 	<math.h>
+
+1460759904 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\buscaminas.h
+
+1460759869 source:c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\buscaminas.c
+	"Buscaminas.h"
+	"Pantalla.h"
+	<stdlib.h>
 
