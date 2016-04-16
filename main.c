@@ -45,6 +45,7 @@ int escudo_permitido = 1;
 const int menu_num = 4;
 char* menu_opciones[4] = { "Jugar", "Sandbox", "Buscaminas" ,"Salir" };
 const char* data_music_main = "Datos/Musica/main.wav";
+const char* data_music_buscaminas = "Datos/Musica/buscaminas.wav";
 const char* data_music_menu = "Datos/Musica/menu.wav";
 const char* data_sound_disparo = "Datos/Sonidos/beep38.wav";
 const char* data_sound_explosion = "Datos/Sonidos/beep5.wav";
@@ -55,6 +56,7 @@ const char* data_sound_escudo = "Datos/Sonidos/snowball_hit_wall.wav";
 
 // Audios
 Mix_Music *gMusicMain = NULL;
+Mix_Music *gMusicBuscaminas = NULL;
 Mix_Music *gMusicMenu = NULL;
 Mix_Chunk *sound_disparo = NULL;
 Mix_Chunk *sound_explosion = NULL;
@@ -86,6 +88,10 @@ void inicializar_juego() {
     //Cargo la musica
     gMusicMain = Mix_LoadMUS(data_music_main);
     if( gMusicMain == NULL ) {
+        printf( "SDL_mixer Error: %s\n", Mix_GetError());
+    }
+    gMusicBuscaminas = Mix_LoadMUS(data_music_buscaminas);
+    if( gMusicBuscaminas == NULL ) {
         printf( "SDL_mixer Error: %s\n", Mix_GetError());
     }
     gMusicMenu = Mix_LoadMUS(data_music_menu);
@@ -130,8 +136,10 @@ void cerrar_juego() {
 
     //Libero la musica
     Mix_FreeMusic( gMusicMenu );
+    Mix_FreeMusic( gMusicBuscaminas );
     Mix_FreeMusic( gMusicMain );
     gMusicMenu = NULL;
+    gMusicBuscaminas = NULL;
     gMusicMain = NULL;
 
     // Libero la memoria
@@ -551,6 +559,7 @@ int main(int argc, char **argv)
                               juego = 2; // Buscaminas
                               partida_estado = 0;
                               partida_modo = 0;
+                              Mix_PlayMusic( gMusicBuscaminas, -1 );
                               Buscaminas_iniciar();
                               break;
                            case 3:

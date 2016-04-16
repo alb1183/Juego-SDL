@@ -1165,7 +1165,7 @@
 
 1460448435 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\listas.h
 
-1460757998 source:c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\main.c
+1460814879 source:c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\main.c
 	<stdlib.h>
 	<math.h>
 	<stdio.h>
@@ -1950,8 +1950,12 @@
 
 1460759904 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\buscaminas.h
 
-1460759869 source:c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\buscaminas.c
+1460823171 source:c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\buscaminas.c
 	"Buscaminas.h"
 	"Pantalla.h"
 	<stdlib.h>
+	<stdio.h>
+	<sys\timeb.h>
+	<time.h>
+	<math.h>
 
