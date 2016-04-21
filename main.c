@@ -11,7 +11,7 @@
 #include "Pantalla.h"
 #include "Vector.h"
 #include "Listas.h"
-#include "Puntos.h"
+#include "Puntuaciones.h"
 #include "Particulas.h"
 #include "Sierpinski.h"
 #include "Buscaminas.h"
@@ -176,15 +176,16 @@ void disparos(Listas_NodoPtr q, Listas_NodoPtr e) {
     while(Listas_siguiente(q) != NULL) {
         Pantalla_ColorRelleno(255,0,0, 255);
 
-        Lista_Entidad* elemento = Lista_elemento(q);
-        double radio = elemento->radio;
-        double pos_x = elemento->x;
-        double pos_y = elemento->y;
+        double radio = Listas_obtener_radio(q);
+        double pos_x = Listas_obtener_x(q);
+        double pos_y = Listas_obtener_y(q);
+        double pos_vel_x = Listas_obtener_vel_x(q);
+        double pos_vel_y = Listas_obtener_vel_y(q);
         //elemento->dat += 0.2;
         //Pantalla_DibujaCirculo(pos_x, pos_y+sin(elemento->dat)*10, radio);
         Pantalla_DibujaCirculo(pos_x, pos_y, radio);
-        elemento->x += elemento->vel_x;
-        elemento->y += elemento->vel_y;
+        Listas_cambiar_x(q, pos_x + pos_vel_x);
+        Listas_cambiar_y(q, pos_y + pos_vel_y);
 
         // Salidas
         if(pos_x > pantalla_ancho-radio-10 || pos_x < radio+10 || pos_y > pantalla_alto-radio-10 || pos_y < radio+10) {
@@ -193,10 +194,9 @@ void disparos(Listas_NodoPtr q, Listas_NodoPtr e) {
             Listas_NodoPtr r = e;
             int choque = 0;
             while(Listas_siguiente(r) != NULL && !choque) {
-                Lista_Entidad* elemento_r = Lista_elemento(r);
-                double radio_e = elemento_r->radio;
-                double pos_x_e = elemento_r->x;
-                double pos_y_e = elemento_r->y;
+                double radio_e = Listas_obtener_radio(r);
+                double pos_x_e = Listas_obtener_x(r);
+                double pos_y_e = Listas_obtener_y(r);
                 double distancia = sqrt(pow(pos_x_e-pos_x, 2) + pow(pos_y_e-pos_y, 2));
                 if(distancia < radio + radio_e) {
                     Listas_SuprimeNodo(r);
@@ -216,11 +216,12 @@ void disparos(Listas_NodoPtr q, Listas_NodoPtr e) {
 
 void draw_enemigos(Listas_NodoPtr q) {
     while(Listas_siguiente(q) != NULL) {
-        Lista_Entidad* elemento = Lista_elemento(q);
-        double radio = elemento->radio;
-        double pos_x = elemento->x;
-        double pos_y = elemento->y;
-        double estado = elemento->estado;
+        double radio = Listas_obtener_radio(q);
+        double pos_x = Listas_obtener_x(q);
+        double pos_y = Listas_obtener_y(q);
+        int estado = Listas_obtener_estado(q);
+        double pos_vel_x = Listas_obtener_vel_x(q);
+        double pos_vel_y = Listas_obtener_vel_y(q);
         // Color segun el tipo de enemigo
         if(estado == 1)
             Pantalla_ColorRelleno(230,100,0, 255);
@@ -231,16 +232,16 @@ void draw_enemigos(Listas_NodoPtr q) {
         else if(estado == 4)
             Pantalla_ColorRelleno(190,0,250, 255);
         Pantalla_DibujaCirculo(pos_x, pos_y, radio);
-        elemento->x += elemento->vel_x;
-        elemento->y += elemento->vel_y;
+        Listas_cambiar_x(q, pos_x + pos_vel_x);
+        Listas_cambiar_y(q, pos_y + pos_vel_y);
         // Tipo de enemigo que persigue al prota
         if(estado == 4) {
-            Vector inicial = Vector_new(elemento->x, elemento->y);
+            Vector inicial = Vector_new(pos_x, pos_y);
             Vector fin = Vector_new(principal.x, principal.y);
             Vector enemigo_v = Vector_unitary(Vector_points2vector(inicial, fin));
             double vel = 2 + (dificultad/10);
-            elemento->vel_x = Vector_get(enemigo_v, 0) * vel;
-            elemento->vel_y = Vector_get(enemigo_v, 1) * vel;
+            Listas_cambiar_vel_x(q, Vector_get(enemigo_v, 0) * vel);
+            Listas_cambiar_vel_y(q, Vector_get(enemigo_v, 1) * vel);
         }
         // Distancia del objeto al prota
         double distancia = sqrt(pow(pos_x-principal.x, 2) + pow(pos_y-principal.y, 2));
@@ -270,70 +271,63 @@ void draw_enemigos(Listas_NodoPtr q) {
     }
 }
 
-Lista_Entidad crear_disparo(double x, double y) {
-    Lista_Entidad disparo;
-    disparo.estado = 1;
-    disparo.dat= 0;
-    disparo.radio = 3;
-
+void crear_disparo(Listas_NodoPtr Cadena_disparos, double x, double y) {
     Vector mouse_v = mouse_vector();
     int size = 20;
     double size_punta = 2;
-    disparo.x = principal.x + (Vector_get(mouse_v, 0) * size * size_punta);
-    disparo.y = principal.y + (Vector_get(mouse_v, 1) * size * size_punta);
+    double pos_x = principal.x + (Vector_get(mouse_v, 0) * size * size_punta);
+    double pos_y = principal.y + (Vector_get(mouse_v, 1) * size * size_punta);
 
     double vel = 4;
-    disparo.vel_x = Vector_get(mouse_v, 0) * vel;
-    disparo.vel_y = Vector_get(mouse_v, 1) * vel;
+    double vel_x = Vector_get(mouse_v, 0) * vel;
+    double vel_y = Vector_get(mouse_v, 1) * vel;
 
-    return disparo;
+    Listas_Insertar_crear(Cadena_disparos, pos_x, pos_y, vel_x, vel_y, 3, 0, 1);
 }
 
-Lista_Entidad crear_enemigo_pos() {
-    Lista_Entidad enemigo;
+void crear_enemigo_pos(Listas_NodoPtr p) {
+    int estado;
+    double radio;
     if(round(rand()%15) == 1) {
-        enemigo.estado = 2;
-        enemigo.radio = 5;
+        estado = 2;
+        radio = 5;
     }else if(round(rand()%20) == 1) {
-        enemigo.estado = 3;
-        enemigo.radio = 5;
+        estado = 3;
+        radio = 5;
     }else if(round(rand()%4) == 1) {
-        enemigo.estado = 4;
-        enemigo.radio = 15;
+        estado = 4;
+        radio = 15;
     }else{
-        enemigo.estado = 1;
-        enemigo.radio = 15;
+        estado = 1;
+        radio = 15;
     }
 
     int random_selector =  rand() % 4;
     int inicial_x = 0;
     int inicial_y = 0;
     if(random_selector == 0) {
-        inicial_x = enemigo.radio+1;
-        inicial_y = (enemigo.radio+1) + (rand()%pantalla_alto-enemigo.radio*2-1);
+        inicial_x = radio+1;
+        inicial_y = (radio+1) + (rand()%pantalla_alto-radio*2-1);
     }else if(random_selector == 1) {
-        inicial_x = pantalla_ancho-enemigo.radio-1;
-        inicial_y = (enemigo.radio+1) + (rand()%pantalla_alto-enemigo.radio*2-1);
+        inicial_x = pantalla_ancho-radio-1;
+        inicial_y = (radio+1) + (rand()%pantalla_alto-radio*2-1);
     }else if(random_selector == 2) {
-        inicial_x = (enemigo.radio+1) + (rand()%pantalla_ancho-enemigo.radio*2-1);
-        inicial_y = enemigo.radio+1;
+        inicial_x = (radio+1) + (rand()%pantalla_ancho-radio*2-1);
+        inicial_y = radio+1;
     }else if(random_selector == 3) {
-        inicial_x = (enemigo.radio+1) + (rand()%pantalla_ancho-enemigo.radio*2-1);
-        inicial_y = pantalla_alto-enemigo.radio-1;
+        inicial_x = (radio+1) + (rand()%pantalla_ancho-radio*2-1);
+        inicial_y = pantalla_alto-radio-1;
     }
 
     Vector inicial = Vector_new(inicial_x, inicial_y);
     Vector fin = Vector_new(principal.x, principal.y);
     Vector enemigo_v = Vector_unitary(Vector_points2vector(inicial, fin));
 
-    enemigo.x = inicial_x;
-    enemigo.y = inicial_y;
-
     double vel = 2 + (dificultad/10);
-    enemigo.vel_x = Vector_get(enemigo_v, 0) * vel;
-    enemigo.vel_y = Vector_get(enemigo_v, 1) * vel;
+    double vel_x = Vector_get(enemigo_v, 0) * vel;
+    double vel_y = Vector_get(enemigo_v, 1) * vel;
 
-    return enemigo;
+    Listas_Insertar_crear(p, inicial_x, inicial_y, vel_x, vel_y, radio, 0, estado);
 }
 
 void draw_info() {
@@ -365,8 +359,7 @@ void draw_info() {
 
 void crear_enemigo(Listas_NodoPtr p, int count) {
     if(count == 0) {
-        Lista_Entidad enemigo = crear_enemigo_pos();
-        Listas_Insertar_Inicio(p, enemigo);
+        crear_enemigo_pos(p);
     }
 }
 
@@ -379,21 +372,17 @@ void habilidades(Listas_NodoPtr Cadena_disparos, int tipo) {
     if(tipo == 1) {
         if(principal.explosiones > 0) {
             for(int i = 1; i <= 24; i++) {
-                Lista_Entidad disparo;
-                disparo.estado = 1;
-                disparo.radio = 3;
-
                 int size = principal.radio;
                 double factor_x = cos(M_PI*i/12);
                 double factor_y = sin(M_PI*i/12);
-                disparo.x = principal.x + (factor_x * size);
-                disparo.y = principal.y + (factor_y * size);
+                double pos_x = principal.x + (factor_x * size);
+                double pos_y = principal.y + (factor_y * size);
 
                 double vel = 4;
-                disparo.vel_x = factor_x * vel;
-                disparo.vel_y = factor_y * vel;
+                double vel_x = factor_x * vel;
+                double vel_y = factor_y * vel;
 
-                Listas_Insertar_Inicio(Cadena_disparos, disparo);
+                Listas_Insertar_crear(Cadena_disparos, pos_x, pos_y, vel_x, vel_y, 3, 0, 1);
             }
             if(partida_modo == 0)
                 principal.explosiones--;
@@ -404,21 +393,17 @@ void habilidades(Listas_NodoPtr Cadena_disparos, int tipo) {
             for(int k = 0; k <= 1; k++) {
                 for(int j = 1; j <= 5; j++) {
                     for(int i = 1; i <= 24; i++) {
-                        Lista_Entidad disparo;
-                        disparo.estado = 1;
-                        disparo.radio = 3;
-
                         int size = principal.radio;
                         double factor_x = cos(M_PI*i/12);
                         double factor_y = sin(M_PI*i/12);
-                        disparo.x = principal.x + ((40*j - 120) * (k-1)) +(factor_x * size);
-                        disparo.y = principal.y + ((40*j - 120) * k) + (factor_y * size);
+                        double pos_x = principal.x + ((40*j - 120) * (k-1)) +(factor_x * size);
+                        double pos_y = principal.y + ((40*j - 120) * k) + (factor_y * size);
 
                         double vel = 4;
-                        disparo.vel_x = factor_x * vel;
-                        disparo.vel_y = factor_y * vel;
+                        double vel_x = factor_x * vel;
+                        double vel_y = factor_y * vel;
 
-                        Listas_Insertar_Inicio(Cadena_disparos, disparo);
+                        Listas_Insertar_crear(Cadena_disparos, pos_x, pos_y, vel_x, vel_y, 3, 0, 1);
                     }
                 }
             }
@@ -436,35 +421,6 @@ void escudo_run() {
     }else if(principal.escudo_c < 400)
         principal.escudo_c++;
 }
-
-/*void menu_background_clean(int fondo_array[60][106]) {
-	for(int i = 0; i < 60; i++) {
-        for(int j = 0; j < 106; j++) {
-            fondo_array[i][j] = 0;
-        }
-	}
-}
-
-void menu_background_grow(int fondo_array[60][106], int nivel, int x, int y) {
-    if(x >= 0 && x < 106 && y >= 0 && y < 60) {
-        if(fondo_array[y][x] == 0) {
-            printf("%d;%d;%d;\n", nivel,x,y);
-            fondo_array[y][x] = round(nivel / 1786.0);
-
-
-            menu_background_grow(fondo_array, nivel+1, x-1, y-1);
-            menu_background_grow(fondo_array, nivel+1, x, y-1);
-            menu_background_grow(fondo_array, nivel+1, x+1, y-1);
-
-            menu_background_grow(fondo_array, nivel+1, x-1, y);
-            menu_background_grow(fondo_array, nivel+1, x+1, y);
-
-            menu_background_grow(fondo_array, nivel+1, x-1, y+1);
-            menu_background_grow(fondo_array, nivel+1, x, y+1);
-            menu_background_grow(fondo_array, nivel+1, x+1, y+1);
-        }
-    }
-}*/
 
 int main(int argc, char **argv)
 {
@@ -485,9 +441,9 @@ int main(int argc, char **argv)
     int mouse_pulsado = 0;
     int tecla_pulsada = 0;
     inicializar_juego();
-    Listas_NodoPtr Cadena_disparos = Listas_crear_cadena();
-    Listas_NodoPtr Cadena_enemigos = Listas_crear_cadena();
-    ParticulaPtr Cadena_particulas = Particulas_cadena(pantalla_alto, pantalla_ancho);
+    Listas_NodoPtr Cadena_disparos = Listas_crear();
+    Listas_NodoPtr Cadena_enemigos = Listas_crear();
+    Particulas_crea(pantalla_alto, pantalla_ancho);
     Sierpinski_TrianguloPtr Sierpinski_1 = Sierpinski_crear_triangulo(NULL,
                                                                       Sierpinski_Punto_crea(4, 460),
                                                                       Sierpinski_Punto_crea(224, 20),
@@ -586,8 +542,7 @@ int main(int argc, char **argv)
                 // Controles - Start
                 if(Pantalla_RatonBotonPulsado(SDL_BUTTON_LEFT)) {
                     if(!mouse_pulsado) {
-                        Lista_Entidad disparo = crear_disparo(mouse_x, mouse_y);
-                        Listas_Insertar_Inicio(Cadena_disparos, disparo);
+                        crear_disparo(Cadena_disparos, mouse_x, mouse_y);
                         Mix_PlayChannel( -1, sound_disparo, 0 );
                     }
 
@@ -663,7 +618,7 @@ int main(int argc, char **argv)
                 // Comprobaciones - Start
                 escudo_run();
                 for(int i = 0; i < 5; i++) // Creo 5 particulas por ciclo
-                    Particulas_crear(Cadena_particulas, 0, principal.puntos);
+                    Particulas_insertar(0, principal.puntos);
                 disparos(Cadena_disparos, Cadena_enemigos);
                 if(principal.puntos >= 200 && partida_modo == 0)
                     partida_estado = 1;
@@ -673,7 +628,7 @@ int main(int argc, char **argv)
                 // Dibujado
                 draw_prota();
                 draw_info();
-                Particulas_dibuja(Cadena_particulas, principal.puntos);
+                Particulas_dibuja(principal.puntos);
                 if(partida_modo == 0)
                     draw_enemigos(Cadena_enemigos);
 
@@ -733,9 +688,9 @@ int main(int argc, char **argv)
     }
     Pantalla_Libera();
     cerrar_juego();
-    Listas_liberar_cadena(Cadena_disparos);
-    Listas_liberar_cadena(Cadena_enemigos);
-    Particulas_libera(Cadena_particulas);
+    Listas_liberar(Cadena_disparos);
+    Listas_liberar(Cadena_enemigos);
+    Particulas_libera();
 
     return 0;
 }

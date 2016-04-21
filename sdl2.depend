@@ -1159,13 +1159,13 @@
 	<stdlib.h>
 	<math.h>
 
-1460447617 source:c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\listas.c
+1461252677 source:c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\listas.c
 	"Listas.h"
 	<stdlib.h>
 
-1460448435 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\listas.h
+1461055003 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\listas.h
 
-1460814879 source:c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\main.c
+1461252396 source:c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\main.c
 	<stdlib.h>
 	<math.h>
 	<stdio.h>
@@ -1177,7 +1177,7 @@
 	"Pantalla.h"
 	"Vector.h"
 	"Listas.h"
-	"Puntos.h"
+	"Puntuaciones.h"
 	"Particulas.h"
 	"Sierpinski.h"
 	"Buscaminas.h"
@@ -1517,7 +1517,7 @@
 
 1460445506 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\puntos.h
 
-1460445066 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\particulas.h
+1461053266 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\particulas.h
 
 1460445688 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sierpinski.h
 
@@ -1528,7 +1528,7 @@
 	<stdio.h>
 	<math.h>
 
-1460446064 source:c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\particulas.c
+1461053184 source:c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\particulas.c
 	"Particulas.h"
 	"Pantalla.h"
 	"Vector.h"
@@ -1948,9 +1948,9 @@
 	<stdlib.h>
 	<math.h>
 
-1460759904 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\buscaminas.h
+1460824421 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\buscaminas.h
 
-1460823171 source:c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\buscaminas.c
+1461051922 source:c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\buscaminas.c
 	"Buscaminas.h"
 	"Pantalla.h"
 	<stdlib.h>
@@ -1958,4 +1958,420 @@
 	<sys\timeb.h>
 	<time.h>
 	<math.h>
+
+1461051922 source:c:\users\alumno\downloads\juego-sdl\buscaminas.c
+	"Buscaminas.h"
+	"Pantalla.h"
+	<stdlib.h>
+	<stdio.h>
+	<sys\timeb.h>
+	<time.h>
+	<math.h>
+
+1460824421 c:\users\alumno\downloads\juego-sdl\buscaminas.h
+
+1459149788 c:\users\alumno\downloads\juego-sdl\pantalla.h
+	"SDL2/SDL.h"
+
+1459149788 c:\users\alumno\downloads\juego-sdl\sdl2\sdl.h
+	"SDL_main.h"
+	"SDL_stdinc.h"
+	"SDL_assert.h"
+	"SDL_atomic.h"
+	"SDL_audio.h"
+	"SDL_clipboard.h"
+	"SDL_cpuinfo.h"
+	"SDL_endian.h"
+	"SDL_error.h"
+	"SDL_events.h"
+	"SDL_filesystem.h"
+	"SDL_joystick.h"
+	"SDL_gamecontroller.h"
+	"SDL_haptic.h"
+	"SDL_hints.h"
+	"SDL_loadso.h"
+	"SDL_log.h"
+	"SDL_messagebox.h"
+	"SDL_mutex.h"
+	"SDL_power.h"
+	"SDL_render.h"
+	"SDL_rwops.h"
+	"SDL_system.h"
+	"SDL_thread.h"
+	"SDL_timer.h"
+	"SDL_version.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1459149788 c:\users\alumno\downloads\juego-sdl\sdl2\sdl_main.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1459149788 c:\users\alumno\downloads\juego-sdl\sdl2\sdl_stdinc.h
+	"SDL_config.h"
+	<sys/types.h>
+	<stdio.h>
+	<stdlib.h>
+	<stddef.h>
+	<stdarg.h>
+	<stdlib.h>
+	<malloc.h>
+	<stddef.h>
+	<stdarg.h>
+	<memory.h>
+	<string.h>
+	<strings.h>
+	<inttypes.h>
+	<stdint.h>
+	<ctype.h>
+	<math.h>
+	<float.h>
+	<iconv.h>
+	<sal.h>
+	"begin_code.h"
+	<alloca.h>
+	<malloc.h>
+	<malloc.h>
+	<malloc.h>
+	<stdlib.h>
+	"close_code.h"
+
+1459149788 c:\users\alumno\downloads\juego-sdl\sdl2\sdl_config.h
+	"SDL_platform.h"
+
+1459149788 c:\users\alumno\downloads\juego-sdl\sdl2\sdl_platform.h
+	"AvailabilityMacros.h"
+	"TargetConditionals.h"
+	<winapifamily.h>
+	"begin_code.h"
+	"close_code.h"
+
+1459149788 c:\users\alumno\downloads\juego-sdl\sdl2\begin_code.h
+
+1459149788 c:\users\alumno\downloads\juego-sdl\sdl2\close_code.h
+
+1459149788 c:\users\alumno\downloads\juego-sdl\sdl2\sdl_assert.h
+	"SDL_config.h"
+	"begin_code.h"
+	<signal.h>
+	"close_code.h"
+
+1459149788 c:\users\alumno\downloads\juego-sdl\sdl2\sdl_atomic.h
+	"SDL_stdinc.h"
+	"SDL_platform.h"
+	"begin_code.h"
+	<mbarrier.h>
+	"close_code.h"
+
+1459149788 c:\users\alumno\downloads\juego-sdl\sdl2\sdl_audio.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_endian.h"
+	"SDL_mutex.h"
+	"SDL_thread.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1459149788 c:\users\alumno\downloads\juego-sdl\sdl2\sdl_error.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1459149788 c:\users\alumno\downloads\juego-sdl\sdl2\sdl_endian.h
+	"SDL_stdinc.h"
+	<endian.h>
+	"begin_code.h"
+	"close_code.h"
+
+1459149788 c:\users\alumno\downloads\juego-sdl\sdl2\sdl_mutex.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1459149788 c:\users\alumno\downloads\juego-sdl\sdl2\sdl_thread.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_atomic.h"
+	"SDL_mutex.h"
+	"begin_code.h"
+	<process.h>
+	"close_code.h"
+
+1459149788 c:\users\alumno\downloads\juego-sdl\sdl2\sdl_rwops.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1459149788 c:\users\alumno\downloads\juego-sdl\sdl2\sdl_clipboard.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1459149788 c:\users\alumno\downloads\juego-sdl\sdl2\sdl_cpuinfo.h
+	"SDL_stdinc.h"
+	<intrin.h>
+	<intrin.h>
+	<altivec.h>
+	<mmintrin.h>
+	<mm3dnow.h>
+	<xmmintrin.h>
+	<emmintrin.h>
+	"begin_code.h"
+	"close_code.h"
+
+1459149788 c:\users\alumno\downloads\juego-sdl\sdl2\sdl_events.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"SDL_keyboard.h"
+	"SDL_mouse.h"
+	"SDL_joystick.h"
+	"SDL_gamecontroller.h"
+	"SDL_quit.h"
+	"SDL_gesture.h"
+	"SDL_touch.h"
+	"begin_code.h"
+	"close_code.h"
+
+1459149788 c:\users\alumno\downloads\juego-sdl\sdl2\sdl_video.h
+	"SDL_stdinc.h"
+	"SDL_pixels.h"
+	"SDL_rect.h"
+	"SDL_surface.h"
+	"begin_code.h"
+	"close_code.h"
+
+1459149788 c:\users\alumno\downloads\juego-sdl\sdl2\sdl_pixels.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1459149788 c:\users\alumno\downloads\juego-sdl\sdl2\sdl_rect.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_pixels.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1459149788 c:\users\alumno\downloads\juego-sdl\sdl2\sdl_surface.h
+	"SDL_stdinc.h"
+	"SDL_pixels.h"
+	"SDL_rect.h"
+	"SDL_blendmode.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1459149788 c:\users\alumno\downloads\juego-sdl\sdl2\sdl_blendmode.h
+	"begin_code.h"
+	"close_code.h"
+
+1459149788 c:\users\alumno\downloads\juego-sdl\sdl2\sdl_keyboard.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_keycode.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1459149788 c:\users\alumno\downloads\juego-sdl\sdl2\sdl_keycode.h
+	"SDL_stdinc.h"
+	"SDL_scancode.h"
+
+1459149788 c:\users\alumno\downloads\juego-sdl\sdl2\sdl_scancode.h
+	"SDL_stdinc.h"
+
+1459149788 c:\users\alumno\downloads\juego-sdl\sdl2\sdl_mouse.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1459149788 c:\users\alumno\downloads\juego-sdl\sdl2\sdl_joystick.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1459149788 c:\users\alumno\downloads\juego-sdl\sdl2\sdl_gamecontroller.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_rwops.h"
+	"SDL_joystick.h"
+	"begin_code.h"
+	"close_code.h"
+
+1459149788 c:\users\alumno\downloads\juego-sdl\sdl2\sdl_quit.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+
+1459149788 c:\users\alumno\downloads\juego-sdl\sdl2\sdl_gesture.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"SDL_touch.h"
+	"begin_code.h"
+	"close_code.h"
+
+1459149788 c:\users\alumno\downloads\juego-sdl\sdl2\sdl_touch.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1459149788 c:\users\alumno\downloads\juego-sdl\sdl2\sdl_filesystem.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1459149788 c:\users\alumno\downloads\juego-sdl\sdl2\sdl_haptic.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_joystick.h"
+	"begin_code.h"
+	"close_code.h"
+
+1459149788 c:\users\alumno\downloads\juego-sdl\sdl2\sdl_hints.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1459149788 c:\users\alumno\downloads\juego-sdl\sdl2\sdl_loadso.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1459149788 c:\users\alumno\downloads\juego-sdl\sdl2\sdl_log.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1459149788 c:\users\alumno\downloads\juego-sdl\sdl2\sdl_messagebox.h
+	"SDL_stdinc.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1459149788 c:\users\alumno\downloads\juego-sdl\sdl2\sdl_power.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1459149788 c:\users\alumno\downloads\juego-sdl\sdl2\sdl_render.h
+	"SDL_stdinc.h"
+	"SDL_rect.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1459149788 c:\users\alumno\downloads\juego-sdl\sdl2\sdl_system.h
+	"SDL_stdinc.h"
+	"SDL_keyboard.h"
+	"SDL_render.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1459149788 c:\users\alumno\downloads\juego-sdl\sdl2\sdl_timer.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1459149788 c:\users\alumno\downloads\juego-sdl\sdl2\sdl_version.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1461054501 source:c:\users\alumno\downloads\juego-sdl\listas.c
+	"Listas.h"
+	<stdlib.h>
+
+1461054497 c:\users\alumno\downloads\juego-sdl\listas.h
+
+1461053365 source:c:\users\alumno\downloads\juego-sdl\main.c
+	<stdlib.h>
+	<math.h>
+	<stdio.h>
+	<string.h>
+	<time.h>
+	<SDL2/SDL.h>
+	"SDL2/SDL_mixer.h"
+	<sys\timeb.h>
+	"Pantalla.h"
+	"Vector.h"
+	"Listas.h"
+	"Puntuaciones.h"
+	"Particulas.h"
+	"Sierpinski.h"
+	"Buscaminas.h"
+
+1459149788 c:\users\alumno\downloads\juego-sdl\sdl2\sdl_mixer.h
+	"SDL_stdinc.h"
+	"SDL_rwops.h"
+	"SDL_audio.h"
+	"SDL_endian.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1460446037 c:\users\alumno\downloads\juego-sdl\vector.h
+
+1461052786 c:\users\alumno\downloads\juego-sdl\puntos.h
+
+1461053266 c:\users\alumno\downloads\juego-sdl\particulas.h
+
+1460445688 c:\users\alumno\downloads\juego-sdl\sierpinski.h
+
+1459149788 source:c:\users\alumno\downloads\juego-sdl\pantalla.c
+	"Pantalla.h"
+	<stdlib.h>
+	<signal.h>
+	<stdio.h>
+	<math.h>
+
+1461053184 source:c:\users\alumno\downloads\juego-sdl\particulas.c
+	"Particulas.h"
+	"Pantalla.h"
+	"Vector.h"
+	<stdlib.h>
+	<math.h>
+
+1460445506 source:c:\users\alumno\downloads\juego-sdl\puntos.c
+	"Puntos.h"
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+
+1459149788 source:c:\users\alumno\downloads\juego-sdl\resource.rc
+
+1460446473 source:c:\users\alumno\downloads\juego-sdl\sierpinski.c
+	"Sierpinski.h"
+	"Pantalla.h"
+	<stdlib.h>
+	<math.h>
+
+1460446037 source:c:\users\alumno\downloads\juego-sdl\vector.c
+	"Vector.h"
+	<stdlib.h>
+	<math.h>
+
+1461052786 c:\users\alumno\downloads\juego-sdl\puntuaciones.h
+
+1461053349 source:c:\users\alumno\downloads\juego-sdl\puntuaciones.c
+	"Puntuaciones.h"
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+
+1461052786 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\puntuaciones.h
 

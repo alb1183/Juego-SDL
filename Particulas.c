@@ -14,33 +14,34 @@ struct Nodo {
     Particula Elemento;
     struct Nodo* Sig;
 };
-typedef struct Nodo* ParticulaPtr;
+typedef struct Nodo* ParticulasPtr;
 
 int pantalla_alto;
 int pantalla_ancho;
+ParticulasPtr Cadena_particulas;
 
-ParticulaPtr Particulas_cadena(int alto, int ancho) {
-    ParticulaPtr p = malloc(sizeof(struct Nodo));
+void Particulas_crea(int alto, int ancho) {
+    ParticulasPtr p = malloc(sizeof(struct Nodo));
     p->Sig = NULL;
     pantalla_alto = alto;
     pantalla_ancho = ancho;
 
-    return p;
+    Cadena_particulas = p;
 }
 
-void Particulas_Insertar_Inicio(ParticulaPtr p, Particula e) {
-    ParticulaPtr aux = malloc(sizeof(struct Nodo));
+void Particulas_Insertar_Inicio(ParticulasPtr p, Particula e) {
+    ParticulasPtr aux = malloc(sizeof(struct Nodo));
     aux->Elemento = e;
     aux->Sig = p->Sig;
     p->Sig = aux;
 }
-void Particulas_Suprimir(ParticulaPtr q) {
-    ParticulaPtr aux = q->Sig;
+void Particulas_Suprimir(ParticulasPtr q) {
+    ParticulasPtr aux = q->Sig;
     q->Sig = q->Sig->Sig;
     free(aux);
 }
 
-void Particulas_crear(ParticulaPtr p, int tipo, int puntos) {
+void Particulas_insertar(int tipo, int puntos) {
     if(tipo == 0) {
         Particula particula;
         particula.estado = rand()%1786;
@@ -55,12 +56,13 @@ void Particulas_crear(ParticulaPtr p, int tipo, int puntos) {
         if(rand()%8 == 1)
             particula.vel_y = -4+rand()%9;
 
-        Particulas_Insertar_Inicio(p, particula);
+        Particulas_Insertar_Inicio(Cadena_particulas, particula);
     }
 }
 
 
-void Particulas_dibuja(ParticulaPtr q, int puntos) {
+void Particulas_dibuja(int puntos) {
+    ParticulasPtr q = Cadena_particulas;
     while(q->Sig != NULL) {
         double pos_x = q->Sig->Elemento.x;
         double pos_y = q->Sig->Elemento.y;
@@ -137,9 +139,10 @@ void Particulas_dibuja(ParticulaPtr q, int puntos) {
 }
 
 
-void Particulas_libera(ParticulaPtr p) {
+void Particulas_libera() {
+    ParticulasPtr p = Cadena_particulas;
     while(p != NULL) {
-        ParticulaPtr aux = p;
+        ParticulasPtr aux = p;
         p = p->Sig;
         free(aux);
     }

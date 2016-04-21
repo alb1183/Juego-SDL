@@ -192,6 +192,16 @@ void Buscaminas_loop() {
             if(minas > 1)
                 minas--;
         tecla_pulsada = 1;
+    }else if(Pantalla_TeclaPulsada(SDL_SCANCODE_RIGHT)) {
+        if(!tecla_pulsada)
+            if(minas < 22*22-10)
+                minas += 10;
+        tecla_pulsada = 1;
+    }else if(Pantalla_TeclaPulsada(SDL_SCANCODE_LEFT)) {
+        if(!tecla_pulsada)
+            if(minas > 10)
+                minas -= 10;
+        tecla_pulsada = 1;
     }else if(Pantalla_TeclaPulsada(SDL_SCANCODE_W)) {
         if(!tecla_pulsada){
             Buscaminas_minas_discover(2);
