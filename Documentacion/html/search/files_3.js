@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['vector_2eh',['Vector.h',['../_vector_8h.html',1,'']]]
+  ['sierpinski_2eh',['Sierpinski.h',['../_sierpinski_8h.html',1,'']]]
 ];

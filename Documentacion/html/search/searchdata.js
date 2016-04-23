@@ -1,11 +1,11 @@
 var indexSectionsWithContent =
 {
-  0: "cdegilnprstuv",
-  1: "einptv",
-  2: "lpsv",
-  3: "cdegilprsuv",
-  4: "inptv",
-  5: "l"
+  0: "beilnpsv",
+  1: "einpsv",
+  2: "blpsv",
+  3: "blpsv",
+  4: "ilpsv",
+  5: "b"
 };
 
 var indexSectionNames =
@@ -20,11 +20,11 @@ var indexSectionNames =
 
 var indexSectionLabels =
 {
-  0: "All",
-  1: "Classes",
-  2: "Files",
-  3: "Functions",
-  4: "Typedefs",
-  5: "Pages"
+  0: "Todo",
+  1: "Clases",
+  2: "Archivos",
+  3: "Funciones",
+  4: "&apos;typedefs&apos;",
+  5: "Páginas"
 };
 

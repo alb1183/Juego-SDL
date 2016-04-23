@@ -24,7 +24,6 @@ double Vector_get(Vector v, int t){
 void Vector_change(Vector v, double x, double y){
     v->x = x;
     v->y = y;
-    return v;
 }
 
 Vector Vector_unitary(Vector v) {
@@ -57,5 +56,4 @@ Vector Vector_rotate(Vector inicial, double degree) {
 void Vector_scale(Vector inicial, double scale) {
     inicial->x *= scale;
     inicial->y *= scale;
-    return inicial;
 }

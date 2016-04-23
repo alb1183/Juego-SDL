@@ -1,4 +1,4 @@
-\hypertarget{_pantalla_8h}{}\section{C\+:/\+Users/usuario2/\+Desktop/uni/\+Segundo Cuatrimestre/\+Programacion/\+Juego-\/\+S\+D\+L/\+Pantalla.h File Reference}
+\hypertarget{_pantalla_8h}{}\section{Referencia del Archivo C\+:/\+Users/usuario2/\+Desktop/uni/\+Segundo Cuatrimestre/\+Programacion/\+Juego-\/\+S\+D\+L/\+Pantalla.h}
 \label{_pantalla_8h}\index{C\+:/\+Users/usuario2/\+Desktop/uni/\+Segundo Cuatrimestre/\+Programacion/\+Juego-\/\+S\+D\+L/\+Pantalla.\+h@{C\+:/\+Users/usuario2/\+Desktop/uni/\+Segundo Cuatrimestre/\+Programacion/\+Juego-\/\+S\+D\+L/\+Pantalla.\+h}}
 
 
@@ -14,13 +14,13 @@ mientras (\hyperlink{_pantalla_8h_a19c2511cb80edbbca98085aa2654e03d}{Pantalla\+\
 
 
 {\ttfamily \#include \char`\"{}S\+D\+L2/\+S\+D\+L.\+h\char`\"{}}\\*
-\subsection*{Typedefs}
+\subsection*{\textquotesingle{}typedefs\textquotesingle{}}
 \begin{DoxyCompactItemize}
 \item 
 typedef struct \hyperlink{struct_imagen}{Imagen} $\ast$ \hyperlink{_pantalla_8h_ab3a028955e2786b193b58bca21c21823}{Imagen}\hypertarget{_pantalla_8h_ab3a028955e2786b193b58bca21c21823}{}\label{_pantalla_8h_ab3a028955e2786b193b58bca21c21823}
 
 \begin{DoxyCompactList}\small\item\em T\+DA \hyperlink{struct_imagen}{Imagen}. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsection*{Functions}
+\subsection*{Funciones}
 \begin{DoxyCompactItemize}
 \item 
 void \hyperlink{_pantalla_8h_a97507dc92d0398215d50c2b87ae89455}{Pantalla\+\_\+\+Crea} (char $\ast$titulo, int w, int h, Uint32 flags)
@@ -76,7 +76,7 @@ void \hyperlink{_pantalla_8h_abda58082751ce17ea134e66984a33374}{Pantalla\+\_\+\+
 \begin{DoxyCompactList}\small\item\em Recupera las coordenadas del ratón. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-\subsection{Detailed Description}
+\subsection{DescripciÃ³n detallada}
 Permite realizar programas interactivos que usan gráficos sin necesidad de conocer los detalles de la visualización gráfica ni de la programación dirigida por eventos. Evidentemente, utilizando S\+DL directamente se pueden escribir programas más potentes y eficientes. El esquema básico para hacer una animación con el wrapper consiste en lo siguiente\+:~\newline
 ~\newline
 mientras (\hyperlink{_pantalla_8h_a19c2511cb80edbbca98085aa2654e03d}{Pantalla\+\_\+\+Activa()}) \{ ~\newline
@@ -89,7 +89,7 @@ mientras (\hyperlink{_pantalla_8h_a19c2511cb80edbbca98085aa2654e03d}{Pantalla\+\
 
 
 
-\subsection{Function Documentation}
+\subsection{DocumentaciÃ³n de las funciones}
 \index{Pantalla.\+h@{Pantalla.\+h}!Pantalla\+\_\+\+Activa@{Pantalla\+\_\+\+Activa}}
 \index{Pantalla\+\_\+\+Activa@{Pantalla\+\_\+\+Activa}!Pantalla.\+h@{Pantalla.\+h}}
 \subsubsection[{\texorpdfstring{Pantalla\+\_\+\+Activa()}{Pantalla_Activa()}}]{\setlength{\rightskip}{0pt plus 5cm}int Pantalla\+\_\+\+Activa (
@@ -101,7 +101,7 @@ mientras (\hyperlink{_pantalla_8h_a19c2511cb80edbbca98085aa2654e03d}{Pantalla\+\
 
 Indica si la pantalla está activa o no. La pantalla deja de estar activa cuando el usuario la cierra. 
 
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Devuelve}
 1 si la pantalla está activa. 
 
 0 si la pantalla no está activa. 
@@ -117,7 +117,7 @@ Indica si la pantalla está activa o no. La pantalla deja de estar activa cuando 
 
 Recupera la altura de la pantalla. 
 
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Devuelve}
 La altura de la pantalla. 
 \end{DoxyReturn}
 \index{Pantalla.\+h@{Pantalla.\+h}!Pantalla\+\_\+\+Anchura@{Pantalla\+\_\+\+Anchura}}
@@ -131,7 +131,7 @@ La altura de la pantalla.
 
 Recupera la anchura de la pantalla. 
 
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Devuelve}
 La anchura de la pantalla. 
 \end{DoxyReturn}
 \index{Pantalla.\+h@{Pantalla.\+h}!Pantalla\+\_\+\+Color\+Relleno@{Pantalla\+\_\+\+Color\+Relleno}}
@@ -149,7 +149,7 @@ La anchura de la pantalla.
 Asigna el color de relleno que se usará al dibujar los bordes de las demás primitivas gráficas. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{ParÃ¡metros}
 {\em r} & Componente roja del color (Formato R\+GB) como un valor entero entre 0 a 255. \\
 \hline
 {\em g} & Componente verde del color (Formato R\+GB) como un valor entero entre 0 a 255. \\
@@ -174,7 +174,7 @@ Asigna el color de relleno que se usará al dibujar los bordes de las demás primi
 Asigna el color de trazo que se usará al dibujar los bordes de las primitivas de dibujo. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{ParÃ¡metros}
 {\em r} & Componente roja del color (Formato R\+GB) como un valor entero entre 0 a 255. \\
 \hline
 {\em g} & Componente verde del color (Formato R\+GB) como un valor entero entre 0 a 255. \\
@@ -199,7 +199,7 @@ Asigna el color de trazo que se usará al dibujar los bordes de las primitivas de
 Crea, configura y activa una ventana gráfica en donde aparecerá el resultado de las distintas primitivas gráficas que se vayan aplicando. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{ParÃ¡metros}
 {\em titulo} & Título de la ventana. \\
 \hline
 {\em w} & Anchura de la ventana en puntos. \\
@@ -221,7 +221,7 @@ Crea, configura y activa una ventana gráfica en donde aparecerá el resultado de 
 Dibuja un círculo utilizando el color de relleno y el color de trazo para el borde. 
 
 x 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{ParÃ¡metros}
 {\em x} & Coordenada horizontal del centro del círculo. \\
 \hline
 {\em y} & Coordenada vertical del centro del círculo. \\
@@ -245,7 +245,7 @@ x
 Dibuja una imagen previamente cargada en memoria. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{ParÃ¡metros}
 {\em imagen} & La imagen que se dibuja. \\
 \hline
 {\em x} & Coordenada horizontal de la esquina superior izquierda del rectángulo que contiene la imagen. \\
@@ -272,7 +272,7 @@ Dibuja una imagen previamente cargada en memoria.
 Dibuja una línea utilizando el color de trazo. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{ParÃ¡metros}
 {\em x1} & Coordenada horizontal de uno de los extremos de la línea. \\
 \hline
 {\em y1} & Coordenada vertical de uno de los extremos de la línea. \\
@@ -295,7 +295,7 @@ Dibuja una línea utilizando el color de trazo.
 Dibuja un punto utilizando el color de trazo. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{ParÃ¡metros}
 {\em x} & Coordenada horizontal del punto. \\
 \hline
 {\em y} & Coordenada vertical del punto. \\
@@ -316,7 +316,7 @@ Dibuja un punto utilizando el color de trazo.
 Dibuja un rectángulo utilizando el color de relleno y el color de trazo para el borde. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{ParÃ¡metros}
 {\em x} & Coordenada horizontal de la esquina superior izquierda del rectángulo. \\
 \hline
 {\em y} & Coordenada vertical de la esquina superior izquierda del rectángulo. \\
@@ -341,7 +341,7 @@ Dibuja un rectángulo utilizando el color de relleno y el color de trazo para el 
 Rellena la ventana con el color indicado borrando todo lo que haya en ese momento. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{ParÃ¡metros}
 {\em r} & Componente roja del color (Formato R\+GB) como un valor entero entre 0 a 255. \\
 \hline
 {\em g} & Componente verde del color (Formato R\+GB) como un valor entero entre 0 a 255. \\
@@ -365,7 +365,7 @@ Rellena la ventana con el color indicado borrando todo lo que haya en ese moment
 Dibuja una cadena de texto en la ventana gráfica. El texto mostrado usa una fuente de paso fijo de 8 puntos de ancho por 13 de alto. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{ParÃ¡metros}
 {\em st} & Cadena de caracteres terminada en \textquotesingle{}\textbackslash{}0\textquotesingle{} que será mostrada. \\
 \hline
 {\em x} & Coordenada horizontal de la esquina superior izquierda del rectángulo que enmarca el texto. \\
@@ -390,7 +390,7 @@ Dibuja una cadena de texto en la ventana gráfica. El texto mostrado usa una fuen
 Dibuja un triangulo utilizando el color de relleno y el color de trazo para el borde. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{ParÃ¡metros}
 {\em x1} & Coordenada horizontal de uno de los puntos del triángulo. \\
 \hline
 {\em y1} & Coordenada vertical de uno de los puntos del triángulo. \\
@@ -416,7 +416,7 @@ Dibuja un triangulo utilizando el color de relleno y el color de trazo para el b
 Detiene la ejecución un número de milisegundos determinado. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{ParÃ¡metros}
 {\em ms} & Número de milisegundos a detener la ejecución. \\
 \hline
 \end{DoxyParams}
@@ -431,7 +431,7 @@ Detiene la ejecución un número de milisegundos determinado.
 
 Recupera la altura de una imagen. 
 
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Devuelve}
 La altura de la imagen. 
 \end{DoxyReturn}
 \index{Pantalla.\+h@{Pantalla.\+h}!Pantalla\+\_\+\+Imagen\+Anchura@{Pantalla\+\_\+\+Imagen\+Anchura}}
@@ -445,7 +445,7 @@ La altura de la imagen.
 
 Recupera la anchura de una imagen. 
 
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Devuelve}
 La anchura de la imagen. 
 \end{DoxyReturn}
 \index{Pantalla.\+h@{Pantalla.\+h}!Pantalla\+\_\+\+Imagen\+Lee@{Pantalla\+\_\+\+Imagen\+Lee}}
@@ -461,13 +461,13 @@ La anchura de la imagen.
 Carga en memoria una imagen guardada en un fichero. La imagen debe estar en formato B\+MP y se debe especificar el path completo incluido el nombre del fichero. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{ParÃ¡metros}
 {\em fichero} & Nombre del fichero de donde leer la imagen. \\
 \hline
 {\em transparencia} & Parámetro que indica si la imagen debe considerarse transparente o no. Cualquier valor distinto de 0 indicará a la función que asuma que el color del pixel situado en las coordenadas (0,0) se debe considerar transparente en toda la imagen. \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Devuelve}
 La imagen cargada. 
 \end{DoxyReturn}
 \index{Pantalla.\+h@{Pantalla.\+h}!Pantalla\+\_\+\+Raton\+Boton\+Pulsado@{Pantalla\+\_\+\+Raton\+Boton\+Pulsado}}
@@ -482,11 +482,11 @@ La imagen cargada.
 Indica si alguno de los botones del ratón está pulsado. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{ParÃ¡metros}
 {\em boton} & El botón del que se desea conocer su estado. Los valores corresponden a una de las tres constantes predefinidas por S\+DL\+: S\+D\+L\+\_\+\+B\+U\+T\+T\+O\+N\+\_\+\+L\+E\+FT, S\+D\+L\+\_\+\+B\+U\+T\+T\+O\+N\+\_\+\+M\+I\+D\+D\+LE o S\+D\+L\+\_\+\+B\+U\+T\+T\+O\+N\+\_\+\+R\+I\+G\+HT \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Devuelve}
 1 si el botón está pulsado. 
 
 0 si el botón no está pulsado. 
@@ -504,7 +504,7 @@ Indica si alguno de los botones del ratón está pulsado.
 Recupera las coordenadas del ratón. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{ParÃ¡metros}
 {\em x} & Dirección donde se deja el valor de la coordenada horizontal del ratón o N\+U\+LL si no se desea obtener esa coordenada. \\
 \hline
 {\em y} & Dirección donde se deja el valor de la coordenada vertical del ratón o N\+U\+LL si no se desea obtener esa coordenada. \\
@@ -522,11 +522,11 @@ Recupera las coordenadas del ratón.
 Indica si una tecla en concreto está pulsada. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{ParÃ¡metros}
 {\em scancode} & Código de la tecla de la que se desea conocer su estado. Los valores correspondientes a cada tecla se pueden encontrar en la documentación de S\+DL 2.\+0 (\href{https://wiki.libsdl.org/SDL_Scancode}{\tt https\+://wiki.\+libsdl.\+org/\+S\+D\+L\+\_\+\+Scancode}) \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Devuelve}
 1 si la tecla está pulsada. 
 
 0 si la tecla no está pulsada. 

@@ -52,10 +52,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="Particulas.h" />
-		<Unit filename="Puntos.c">
+		<Unit filename="Puntuaciones.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="Puntos.h" />
+		<Unit filename="Puntuaciones.h" />
 		<Unit filename="SDL2/SDL_mixer.h" />
 		<Unit filename="Sierpinski.c">
 			<Option compilerVar="CC" />

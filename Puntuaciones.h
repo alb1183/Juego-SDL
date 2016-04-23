@@ -5,7 +5,7 @@
 \mainpage La biblioteca Puntos es una biblioteca de puntuaciones.
 */
 /**
-   \file Puntos.h
+   \file Puntuaciones.h
    \brief  TDA dedicado a la lectura y manipulacion de la puntuacion apartir de un fichero.
 */
 

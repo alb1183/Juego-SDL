@@ -102,8 +102,6 @@ void Listas_cambiar_estado(Listas_NodoPtr p, int d) {
     p->Sig->Elemento.estado = d;
 }
 
-//Lista_Entidad Listas_crear_entidad(double x, double y, double vel_x double vel_y, double radio, double dat, int estado);
-
 void Listas_liberar(Listas_NodoPtr p) {
     while(p != NULL) {
         Listas_NodoPtr aux = p;

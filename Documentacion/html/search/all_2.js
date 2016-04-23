@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['entidad',['Entidad',['../struct_entidad.html',1,'']]],
-  ['escribir_5fpuntuaciones',['escribir_puntuaciones',['../_puntos_8h.html#a8a9976e1065308dd510357eeef04dadb',1,'Puntos.c']]]
+  ['imagen',['Imagen',['../struct_imagen.html',1,'Imagen'],['../_pantalla_8h.html#ab3a028955e2786b193b58bca21c21823',1,'Imagen():&#160;Pantalla.h']]]
 ];

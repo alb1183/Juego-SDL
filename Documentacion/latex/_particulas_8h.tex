@@ -1,108 +1,81 @@
-\hypertarget{_particulas_8h}{}\section{C\+:/\+Users/usuario2/\+Desktop/uni/\+Segundo Cuatrimestre/\+Programacion/\+Juego-\/\+S\+D\+L/\+Particulas.h File Reference}
+\hypertarget{_particulas_8h}{}\section{Referencia del Archivo C\+:/\+Users/usuario2/\+Desktop/uni/\+Segundo Cuatrimestre/\+Programacion/\+Juego-\/\+S\+D\+L/\+Particulas.h}
 \label{_particulas_8h}\index{C\+:/\+Users/usuario2/\+Desktop/uni/\+Segundo Cuatrimestre/\+Programacion/\+Juego-\/\+S\+D\+L/\+Particulas.\+h@{C\+:/\+Users/usuario2/\+Desktop/uni/\+Segundo Cuatrimestre/\+Programacion/\+Juego-\/\+S\+D\+L/\+Particulas.\+h}}
 
 
 T\+DA dedicado a la generacion de un minisistema de particulas.  
 
 
-\subsection*{Typedefs}
+\subsection*{Funciones}
 \begin{DoxyCompactItemize}
 \item 
-typedef struct \hyperlink{struct_nodo}{Nodo} $\ast$ \hyperlink{_particulas_8h_a15356635dc2a195ec0cf69f1df17404b}{Particula\+Ptr}\hypertarget{_particulas_8h_a15356635dc2a195ec0cf69f1df17404b}{}\label{_particulas_8h_a15356635dc2a195ec0cf69f1df17404b}
-
-\begin{DoxyCompactList}\small\item\em Tipo particula. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsection*{Functions}
-\begin{DoxyCompactItemize}
-\item 
-\hyperlink{struct_nodo}{Particula\+Ptr} \hyperlink{_particulas_8h_a1616e7342f132ca69740cd781814f7ec}{Particulas\+\_\+cadena} (int alto, int ancho)
+void \hyperlink{_particulas_8h_a271b5240ceeb39814959e24c25318aa9}{Particulas\+\_\+crea} (int alto, int ancho)
 \begin{DoxyCompactList}\small\item\em Crear la cadena(estructura enlazada) que almacenara las particulas. \end{DoxyCompactList}\item 
-void \hyperlink{_particulas_8h_a657c4adb15fb6216af792a42762fd07a}{Particulas\+\_\+crear} (\hyperlink{struct_nodo}{Particula\+Ptr} p, int tipo, int puntos)
-\begin{DoxyCompactList}\small\item\em Crea una particula en la cadena especificada. \end{DoxyCompactList}\item 
-void \hyperlink{_particulas_8h_a77a9ec1f6089986a6c29031cc761cda1}{Particulas\+\_\+dibuja} (\hyperlink{struct_nodo}{Particula\+Ptr} q, int puntos)
+void \hyperlink{_particulas_8h_a153275c3400f3d640d4e93e896881bce}{Particulas\+\_\+insertar} (int tipo, int puntos)
+\begin{DoxyCompactList}\small\item\em Crea una particula. \end{DoxyCompactList}\item 
+void \hyperlink{_particulas_8h_a48016e8b4eff200214b9ed4aeca8ceaa}{Particulas\+\_\+dibuja} (int puntos)
 \begin{DoxyCompactList}\small\item\em Dibuja las particulas de una cadena. \end{DoxyCompactList}\item 
-void \hyperlink{_particulas_8h_ae5f85d7bea1508bc6a6d69760a6562ba}{Particulas\+\_\+libera} (\hyperlink{struct_nodo}{Particula\+Ptr} p)
+void \hyperlink{_particulas_8h_a5f7cfebed8e74694c181d8bac8d32c56}{Particulas\+\_\+libera} ()\hypertarget{_particulas_8h_a5f7cfebed8e74694c181d8bac8d32c56}{}\label{_particulas_8h_a5f7cfebed8e74694c181d8bac8d32c56}
+
 \begin{DoxyCompactList}\small\item\em Borra la cadena y la libera de memoria. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-\subsection{Detailed Description}
+\subsection{Descripción detallada}
 T\+DA dedicado a la generacion de un minisistema de particulas. 
 
 
 
-\subsection{Function Documentation}
-\index{Particulas.\+h@{Particulas.\+h}!Particulas\+\_\+cadena@{Particulas\+\_\+cadena}}
-\index{Particulas\+\_\+cadena@{Particulas\+\_\+cadena}!Particulas.\+h@{Particulas.\+h}}
-\subsubsection[{\texorpdfstring{Particulas\+\_\+cadena(int alto, int ancho)}{Particulas_cadena(int alto, int ancho)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Particula\+Ptr} Particulas\+\_\+cadena (
+\subsection{Documentación de las funciones}
+\index{Particulas.\+h@{Particulas.\+h}!Particulas\+\_\+crea@{Particulas\+\_\+crea}}
+\index{Particulas\+\_\+crea@{Particulas\+\_\+crea}!Particulas.\+h@{Particulas.\+h}}
+\subsubsection[{\texorpdfstring{Particulas\+\_\+crea(int alto, int ancho)}{Particulas_crea(int alto, int ancho)}}]{\setlength{\rightskip}{0pt plus 5cm}void Particulas\+\_\+crea (
 \begin{DoxyParamCaption}
 \item[{int}]{alto, }
 \item[{int}]{ancho}
 \end{DoxyParamCaption}
-)}\hypertarget{_particulas_8h_a1616e7342f132ca69740cd781814f7ec}{}\label{_particulas_8h_a1616e7342f132ca69740cd781814f7ec}
+)}\hypertarget{_particulas_8h_a271b5240ceeb39814959e24c25318aa9}{}\label{_particulas_8h_a271b5240ceeb39814959e24c25318aa9}
 
 
 Crear la cadena(estructura enlazada) que almacenara las particulas. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parámetros}
 {\em alto} & Alto de la pantalla. \\
 \hline
 {\em ancho} & Ancho de la pantalla. \\
 \hline
 \end{DoxyParams}
-\index{Particulas.\+h@{Particulas.\+h}!Particulas\+\_\+crear@{Particulas\+\_\+crear}}
-\index{Particulas\+\_\+crear@{Particulas\+\_\+crear}!Particulas.\+h@{Particulas.\+h}}
-\subsubsection[{\texorpdfstring{Particulas\+\_\+crear(\+Particula\+Ptr p, int tipo, int puntos)}{Particulas_crear(ParticulaPtr p, int tipo, int puntos)}}]{\setlength{\rightskip}{0pt plus 5cm}void Particulas\+\_\+crear (
-\begin{DoxyParamCaption}
-\item[{{\bf Particula\+Ptr}}]{p, }
-\item[{int}]{tipo, }
-\item[{int}]{puntos}
-\end{DoxyParamCaption}
-)}\hypertarget{_particulas_8h_a657c4adb15fb6216af792a42762fd07a}{}\label{_particulas_8h_a657c4adb15fb6216af792a42762fd07a}
-
-
-Crea una particula en la cadena especificada. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em p} & \hyperlink{struct_nodo}{Nodo} cabecera de la cadena. \\
-\hline
-{\em tipo} & Tipo de \hyperlink{structparticula}{particula(por ahora solo 0)}. \\
-\hline
-{\em puntos} & Puntos del jugador (para la velocidad). \\
-\hline
-\end{DoxyParams}
 \index{Particulas.\+h@{Particulas.\+h}!Particulas\+\_\+dibuja@{Particulas\+\_\+dibuja}}
 \index{Particulas\+\_\+dibuja@{Particulas\+\_\+dibuja}!Particulas.\+h@{Particulas.\+h}}
-\subsubsection[{\texorpdfstring{Particulas\+\_\+dibuja(\+Particula\+Ptr q, int puntos)}{Particulas_dibuja(ParticulaPtr q, int puntos)}}]{\setlength{\rightskip}{0pt plus 5cm}void Particulas\+\_\+dibuja (
+\subsubsection[{\texorpdfstring{Particulas\+\_\+dibuja(int puntos)}{Particulas_dibuja(int puntos)}}]{\setlength{\rightskip}{0pt plus 5cm}void Particulas\+\_\+dibuja (
 \begin{DoxyParamCaption}
-\item[{{\bf Particula\+Ptr}}]{q, }
 \item[{int}]{puntos}
 \end{DoxyParamCaption}
-)}\hypertarget{_particulas_8h_a77a9ec1f6089986a6c29031cc761cda1}{}\label{_particulas_8h_a77a9ec1f6089986a6c29031cc761cda1}
+)}\hypertarget{_particulas_8h_a48016e8b4eff200214b9ed4aeca8ceaa}{}\label{_particulas_8h_a48016e8b4eff200214b9ed4aeca8ceaa}
 
 
 Dibuja las particulas de una cadena. 
 
 
-\begin{DoxyParams}{Parameters}
-{\em p} & \hyperlink{struct_nodo}{Nodo} cabecera de la cadena. \\
-\hline
+\begin{DoxyParams}{Parámetros}
 {\em puntos} & Puntos del jugador (para activar efectos en determinada puntuacion). \\
 \hline
 \end{DoxyParams}
-\index{Particulas.\+h@{Particulas.\+h}!Particulas\+\_\+libera@{Particulas\+\_\+libera}}
-\index{Particulas\+\_\+libera@{Particulas\+\_\+libera}!Particulas.\+h@{Particulas.\+h}}
-\subsubsection[{\texorpdfstring{Particulas\+\_\+libera(\+Particula\+Ptr p)}{Particulas_libera(ParticulaPtr p)}}]{\setlength{\rightskip}{0pt plus 5cm}void Particulas\+\_\+libera (
+\index{Particulas.\+h@{Particulas.\+h}!Particulas\+\_\+insertar@{Particulas\+\_\+insertar}}
+\index{Particulas\+\_\+insertar@{Particulas\+\_\+insertar}!Particulas.\+h@{Particulas.\+h}}
+\subsubsection[{\texorpdfstring{Particulas\+\_\+insertar(int tipo, int puntos)}{Particulas_insertar(int tipo, int puntos)}}]{\setlength{\rightskip}{0pt plus 5cm}void Particulas\+\_\+insertar (
 \begin{DoxyParamCaption}
-\item[{{\bf Particula\+Ptr}}]{p}
+\item[{int}]{tipo, }
+\item[{int}]{puntos}
 \end{DoxyParamCaption}
-)}\hypertarget{_particulas_8h_ae5f85d7bea1508bc6a6d69760a6562ba}{}\label{_particulas_8h_ae5f85d7bea1508bc6a6d69760a6562ba}
+)}\hypertarget{_particulas_8h_a153275c3400f3d640d4e93e896881bce}{}\label{_particulas_8h_a153275c3400f3d640d4e93e896881bce}
 
 
-Borra la cadena y la libera de memoria. 
+Crea una particula. 
 
 
-\begin{DoxyParams}{Parameters}
-{\em p} & \hyperlink{struct_nodo}{Nodo} cabecera de la cadena. \\
+\begin{DoxyParams}{Parámetros}
+{\em tipo} & Tipo de \hyperlink{structparticula}{particula(por ahora solo 0)}. \\
+\hline
+{\em puntos} & Puntos del jugador (para la velocidad). \\
 \hline
 \end{DoxyParams}

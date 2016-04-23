@@ -1,5 +1,8 @@
 var searchData=
 [
-  ['crear_5fcadena',['crear_cadena',['../_listas_8h.html#a32eb66053e6dbe7feb5a59207ab53f3d',1,'Listas.c']]],
-  ['crear_5ftriangulo',['crear_triangulo',['../_sierpinski_8h.html#a4ac640a357e611f343c7979c8658477b',1,'Sierpinski.c']]]
+  ['buscaminas_2eh',['Buscaminas.h',['../_buscaminas_8h.html',1,'']]],
+  ['buscaminas_5fdraw',['Buscaminas_draw',['../_buscaminas_8h.html#afd1796bc58c2900e45902a02f36130f8',1,'Buscaminas.c']]],
+  ['buscaminas_5finiciar',['Buscaminas_iniciar',['../_buscaminas_8h.html#a689888c233f025245462281980e004b9',1,'Buscaminas.c']]],
+  ['buscaminas_5floop',['Buscaminas_loop',['../_buscaminas_8h.html#a5cbe5afd660a57c6267412e0e2d0d49b',1,'Buscaminas.c']]],
+  ['buscaminas_2e',['Buscaminas.',['../index.html',1,'']]]
 ];

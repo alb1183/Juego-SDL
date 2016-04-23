@@ -1,0 +1,109 @@
+\hypertarget{_puntuaciones_8h}{}\section{Referencia del Archivo C\+:/\+Users/usuario2/\+Desktop/uni/\+Segundo Cuatrimestre/\+Programacion/\+Juego-\/\+S\+D\+L/\+Puntuaciones.h}
+\label{_puntuaciones_8h}\index{C\+:/\+Users/usuario2/\+Desktop/uni/\+Segundo Cuatrimestre/\+Programacion/\+Juego-\/\+S\+D\+L/\+Puntuaciones.\+h@{C\+:/\+Users/usuario2/\+Desktop/uni/\+Segundo Cuatrimestre/\+Programacion/\+Juego-\/\+S\+D\+L/\+Puntuaciones.\+h}}
+
+
+T\+DA dedicado a la lectura y manipulacion de la puntuacion apartir de un fichero.  
+
+
+\subsection*{\textquotesingle{}typedefs\textquotesingle{}}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{struct_puntuaciones}{Puntuaciones} $\ast$ \hyperlink{_puntuaciones_8h_a44f9f43b7d64b89cb4e28b78396a92cc}{Puntuaciones}\hypertarget{_puntuaciones_8h_a44f9f43b7d64b89cb4e28b78396a92cc}{}\label{_puntuaciones_8h_a44f9f43b7d64b89cb4e28b78396a92cc}
+
+\begin{DoxyCompactList}\small\item\em Tipo de la puntuacion(array). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{_puntuaciones_8h_a52db23c848300dd76a242da3b000ca17}{Puntuaciones\+\_\+leer} ()\hypertarget{_puntuaciones_8h_a52db23c848300dd76a242da3b000ca17}{}\label{_puntuaciones_8h_a52db23c848300dd76a242da3b000ca17}
+
+\begin{DoxyCompactList}\small\item\em Funcion para leer las puntuaciones del fichero. \end{DoxyCompactList}\item 
+void \hyperlink{_puntuaciones_8h_a571af6ad421025265ce694d249e15063}{Puntuaciones\+\_\+escribir} (char nombre\mbox{[}26\mbox{]}, int puntos)
+\begin{DoxyCompactList}\small\item\em Funcion de escritura de la puntuacion en el fichero. \end{DoxyCompactList}\item 
+int \hyperlink{_puntuaciones_8h_a644e245eedf05746875b686fd9957863}{Puntuaciones\+\_\+numero} ()
+\begin{DoxyCompactList}\small\item\em Numero de jugadores en la puntuacion. \end{DoxyCompactList}\item 
+char $\ast$ \hyperlink{_puntuaciones_8h_a6259bf89a0e5f89c86d619a662723874}{Puntuaciones\+\_\+array\+\_\+nombre} (int i)
+\begin{DoxyCompactList}\small\item\em Funcion para obtener el nombre del array de las puntuaciones en un determinado indice. \end{DoxyCompactList}\item 
+int \hyperlink{_puntuaciones_8h_a0c088957a013bb3715a132644e1d48a5}{Puntuaciones\+\_\+array\+\_\+puntos} (int i)
+\begin{DoxyCompactList}\small\item\em Funcion para obtener los puntos del array de las puntuaciones en un determinado indice. \end{DoxyCompactList}\item 
+void \hyperlink{_puntuaciones_8h_a6b2b14ebc42165c057fcd2d7d3271fb9}{Puntuaciones\+\_\+liberar} ()\hypertarget{_puntuaciones_8h_a6b2b14ebc42165c057fcd2d7d3271fb9}{}\label{_puntuaciones_8h_a6b2b14ebc42165c057fcd2d7d3271fb9}
+
+\begin{DoxyCompactList}\small\item\em Funcion para liberar la memoria del array puntuaciones. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Descripción detallada}
+T\+DA dedicado a la lectura y manipulacion de la puntuacion apartir de un fichero. 
+
+
+
+\subsection{Documentación de las funciones}
+\index{Puntuaciones.\+h@{Puntuaciones.\+h}!Puntuaciones\+\_\+array\+\_\+nombre@{Puntuaciones\+\_\+array\+\_\+nombre}}
+\index{Puntuaciones\+\_\+array\+\_\+nombre@{Puntuaciones\+\_\+array\+\_\+nombre}!Puntuaciones.\+h@{Puntuaciones.\+h}}
+\subsubsection[{\texorpdfstring{Puntuaciones\+\_\+array\+\_\+nombre(int i)}{Puntuaciones_array_nombre(int i)}}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ Puntuaciones\+\_\+array\+\_\+nombre (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+)}\hypertarget{_puntuaciones_8h_a6259bf89a0e5f89c86d619a662723874}{}\label{_puntuaciones_8h_a6259bf89a0e5f89c86d619a662723874}
+
+
+Funcion para obtener el nombre del array de las puntuaciones en un determinado indice. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em i} & Indice del array. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Un nombre de un indice dado. 
+\end{DoxyReturn}
+\index{Puntuaciones.\+h@{Puntuaciones.\+h}!Puntuaciones\+\_\+array\+\_\+puntos@{Puntuaciones\+\_\+array\+\_\+puntos}}
+\index{Puntuaciones\+\_\+array\+\_\+puntos@{Puntuaciones\+\_\+array\+\_\+puntos}!Puntuaciones.\+h@{Puntuaciones.\+h}}
+\subsubsection[{\texorpdfstring{Puntuaciones\+\_\+array\+\_\+puntos(int i)}{Puntuaciones_array_puntos(int i)}}]{\setlength{\rightskip}{0pt plus 5cm}int Puntuaciones\+\_\+array\+\_\+puntos (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+)}\hypertarget{_puntuaciones_8h_a0c088957a013bb3715a132644e1d48a5}{}\label{_puntuaciones_8h_a0c088957a013bb3715a132644e1d48a5}
+
+
+Funcion para obtener los puntos del array de las puntuaciones en un determinado indice. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em i} & Indice del array. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+La puntuacion del indice dado. 
+\end{DoxyReturn}
+\index{Puntuaciones.\+h@{Puntuaciones.\+h}!Puntuaciones\+\_\+escribir@{Puntuaciones\+\_\+escribir}}
+\index{Puntuaciones\+\_\+escribir@{Puntuaciones\+\_\+escribir}!Puntuaciones.\+h@{Puntuaciones.\+h}}
+\subsubsection[{\texorpdfstring{Puntuaciones\+\_\+escribir(char nombre[26], int puntos)}{Puntuaciones_escribir(char nombre[26], int puntos)}}]{\setlength{\rightskip}{0pt plus 5cm}void Puntuaciones\+\_\+escribir (
+\begin{DoxyParamCaption}
+\item[{char}]{nombre\mbox{[}26\mbox{]}, }
+\item[{int}]{puntos}
+\end{DoxyParamCaption}
+)}\hypertarget{_puntuaciones_8h_a571af6ad421025265ce694d249e15063}{}\label{_puntuaciones_8h_a571af6ad421025265ce694d249e15063}
+
+
+Funcion de escritura de la puntuacion en el fichero. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em nombre} & String del nombre a escribir. \\
+\hline
+{\em puntos} & Puntuacion a escribir. \\
+\hline
+\end{DoxyParams}
+\index{Puntuaciones.\+h@{Puntuaciones.\+h}!Puntuaciones\+\_\+numero@{Puntuaciones\+\_\+numero}}
+\index{Puntuaciones\+\_\+numero@{Puntuaciones\+\_\+numero}!Puntuaciones.\+h@{Puntuaciones.\+h}}
+\subsubsection[{\texorpdfstring{Puntuaciones\+\_\+numero()}{Puntuaciones_numero()}}]{\setlength{\rightskip}{0pt plus 5cm}int Puntuaciones\+\_\+numero (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{_puntuaciones_8h_a644e245eedf05746875b686fd9957863}{}\label{_puntuaciones_8h_a644e245eedf05746875b686fd9957863}
+
+
+Numero de jugadores en la puntuacion. 
+
+\begin{DoxyReturn}{Devuelve}
+El numero de puntuaciones. 
+\end{DoxyReturn}

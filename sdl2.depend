@@ -1159,13 +1159,13 @@
 	<stdlib.h>
 	<math.h>
 
-1461252677 source:c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\listas.c
+1461439016 source:c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\listas.c
 	"Listas.h"
 	<stdlib.h>
 
-1461055003 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\listas.h
+1461439146 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\listas.h
 
-1461252396 source:c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\main.c
+1461435201 source:c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\main.c
 	<stdlib.h>
 	<math.h>
 	<stdio.h>
@@ -1513,7 +1513,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1460446037 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\vector.h
+1461437827 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\vector.h
 
 1460445506 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\puntos.h
 
@@ -1543,13 +1543,13 @@
 
 1459149788 source:c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\resource.rc
 
-1460446473 source:c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sierpinski.c
+1461437728 source:c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\sierpinski.c
 	"Sierpinski.h"
 	"Pantalla.h"
 	<stdlib.h>
 	<math.h>
 
-1460446037 source:c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\vector.c
+1461439228 source:c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\vector.c
 	"Vector.h"
 	<stdlib.h>
 	<math.h>
@@ -2374,4 +2374,10 @@
 	<string.h>
 
 1461052786 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\puntuaciones.h
+
+1461053349 source:c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\puntuaciones.c
+	"Puntuaciones.h"
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
 
