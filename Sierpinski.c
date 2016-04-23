@@ -18,7 +18,7 @@ struct Sierpinski_TrianguloPtr {
 
 int triang_level;
 int tiempo = 30; // Tiempo entre iteracion(en ciclos)
-int niveles = 6; // Maximo de niveles en la iteracion
+int niveles = 6; // Maximo de niveles de profundidad del arbol
 
 Sierpinski_Punto Sierpinski_Punto_crea(double x, double y) {
     Sierpinski_Punto punto = malloc(sizeof(struct punto));

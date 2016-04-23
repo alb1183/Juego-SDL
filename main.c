@@ -665,8 +665,8 @@ int main(int argc, char **argv)
         }
 
         if (Pantalla_TeclaPulsada(SDL_SCANCODE_ESCAPE)) {
-            juego = 0;
-            //terminado = 1;
+            //juego = 0;
+            terminado = 1;
         }
 
         draw_mouse(mouse_x, mouse_y);

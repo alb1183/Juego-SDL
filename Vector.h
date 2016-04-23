@@ -52,19 +52,6 @@ Vector Vector_unitary(Vector v);
  */
 Vector Vector_points2vector(Vector inicial, Vector fin);
 
-
-/**
-  \brief Pasa de grados a radianes
-  \param degree Grados(Real).
- */
-//double degree2radians(double degree);
-
-/**
-  \brief Pasa de radianes a grados
-  \param radians Radianes(Real).
- */
-//double radians2degree(double radians);
-
 /**
   \brief Rota un vector
   \param inicial Vector a rotar.
