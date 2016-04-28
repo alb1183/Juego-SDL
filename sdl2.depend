@@ -1163,9 +1163,9 @@
 	"Listas.h"
 	<stdlib.h>
 
-1461439146 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\listas.h
+1461440114 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\listas.h
 
-1461435201 source:c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\main.c
+1461856103 source:c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\main.c
 	<stdlib.h>
 	<math.h>
 	<stdio.h>
@@ -2373,7 +2373,7 @@
 	<stdio.h>
 	<string.h>
 
-1461052786 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\puntuaciones.h
+1461439831 c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\puntuaciones.h
 
 1461053349 source:c:\users\usuario2\desktop\uni\segundo cuatrimestre\programacion\juego-sdl\puntuaciones.c
 	"Puntuaciones.h"

@@ -30,20 +30,23 @@ typedef struct Protagonista Prota;
 Prota principal;
 double mouse_x;
 double mouse_y;
-int mov_speed = 3;
+//int mov_speed = 3;
+int mov_speed = 5; // Velocidad de movimiento del protagonista
+int disparo_speed = 6; // Velocidad de la bala
 int pantalla_ancho = 848;
 int pantalla_alto = 480;
 int timer_count = 0;
 int dificultad = 0;
-int juego = 0; // Variable de juego
+int juego = 0; // Variable de juego(indica en que juego se esta)
 int partida_estado = -1; // Variable del estado del juego actual
-int partida_modo = 0;
-int menu_status = 0;
+int partida_modo = 0; // Modo de juego
+int menu_status = 0; // Opcion del menu seleccionada
 int escudo_permitido = 1;
 
 // Constantes
-const int menu_num = 4;
-char* menu_opciones[4] = { "Jugar", "Sandbox", "Buscaminas" ,"Salir" };
+const int menu_num = 5; // Numero de opciones del menu
+char* menu_opciones[5] = { "Jugar", "Lateral", "Sandbox", "Buscaminas" ,"Salir" };
+// Direcciones de los audios
 const char* data_music_main = "Datos/Musica/main.wav";
 const char* data_music_buscaminas = "Datos/Musica/buscaminas.wav";
 const char* data_music_menu = "Datos/Musica/menu.wav";
@@ -146,13 +149,20 @@ void cerrar_juego() {
     Puntuaciones_liberar();
 }
 
+// Funcion para hacer un vector unitario entre el prota y el mouse
 Vector mouse_vector() {
     Vector inicial = Vector_new(principal.x, principal.y);
-    Vector fin = Vector_new(mouse_x, mouse_y);
+    Vector fin;
     //fin.x = (mouse_x > principal.x) ? mouse_x : principal.x;
+    if(partida_modo == 2 && mouse_x < principal.x) {
+         fin = Vector_new(principal.x, mouse_y);
+    }else{
+         fin = Vector_new(mouse_x, mouse_y);
+    }
     return Vector_unitary(Vector_points2vector(inicial, fin));
 }
 
+// Funcion encargada de dibujar el triangulito del prota
 void draw_prota() {
     Vector mouse_v_1 = mouse_vector();
     Vector mouse_v_2 = Vector_rotate(mouse_v_1, 120);
@@ -171,11 +181,12 @@ void draw_prota() {
     Pantalla_DibujaTriangulo(p1_x, p1_y, p2_x, p2_y, p3_x, p3_y);
 }
 
-
+// Funcion encargada de recorrer, dibujar, actualizar y detectar colisiones de las balas
 void disparos(Listas_NodoPtr q, Listas_NodoPtr e) {
     while(Listas_siguiente(q) != NULL) {
         Pantalla_ColorRelleno(255,0,0, 255);
 
+        // Obtengo los valores
         double radio = Listas_obtener_radio(q);
         double pos_x = Listas_obtener_x(q);
         double pos_y = Listas_obtener_y(q);
@@ -183,16 +194,19 @@ void disparos(Listas_NodoPtr q, Listas_NodoPtr e) {
         double pos_vel_y = Listas_obtener_vel_y(q);
         //elemento->dat += 0.2;
         //Pantalla_DibujaCirculo(pos_x, pos_y+sin(elemento->dat)*10, radio);
+        // Lo dibujo
         Pantalla_DibujaCirculo(pos_x, pos_y, radio);
+        // Lo muevo
         Listas_cambiar_x(q, pos_x + pos_vel_x);
         Listas_cambiar_y(q, pos_y + pos_vel_y);
 
-        // Salidas
+        // Si se sale de la pantalla
         if(pos_x > pantalla_ancho-radio-10 || pos_x < radio+10 || pos_y > pantalla_alto-radio-10 || pos_y < radio+10) {
             Listas_SuprimeNodo(q);
         } else {
             Listas_NodoPtr r = e;
             int choque = 0;
+            // Busqueda de colisiones
             while(Listas_siguiente(r) != NULL && !choque) {
                 double radio_e = Listas_obtener_radio(r);
                 double pos_x_e = Listas_obtener_x(r);
@@ -214,8 +228,10 @@ void disparos(Listas_NodoPtr q, Listas_NodoPtr e) {
     }
 }
 
+// Funcion encargada de recorrer, dibujar, actualizar y detectar colisiones de los enemigos
 void draw_enemigos(Listas_NodoPtr q) {
     while(Listas_siguiente(q) != NULL) {
+        // Obtengo los valores
         double radio = Listas_obtener_radio(q);
         double pos_x = Listas_obtener_x(q);
         double pos_y = Listas_obtener_y(q);
@@ -271,6 +287,7 @@ void draw_enemigos(Listas_NodoPtr q) {
     }
 }
 
+// Funcion para crear un disparo (lo crea en la direccion del mouse)
 void crear_disparo(Listas_NodoPtr Cadena_disparos, double x, double y) {
     Vector mouse_v = mouse_vector();
     int size = 20;
@@ -278,13 +295,14 @@ void crear_disparo(Listas_NodoPtr Cadena_disparos, double x, double y) {
     double pos_x = principal.x + (Vector_get(mouse_v, 0) * size * size_punta);
     double pos_y = principal.y + (Vector_get(mouse_v, 1) * size * size_punta);
 
-    double vel = 4;
+    double vel = disparo_speed;
     double vel_x = Vector_get(mouse_v, 0) * vel;
     double vel_y = Vector_get(mouse_v, 1) * vel;
 
     Listas_Insertar_crear(Cadena_disparos, pos_x, pos_y, vel_x, vel_y, 3, 0, 1);
 }
 
+// Funcion para crear el enemigo
 void crear_enemigo_pos(Listas_NodoPtr p) {
     int estado;
     double radio;
@@ -302,7 +320,7 @@ void crear_enemigo_pos(Listas_NodoPtr p) {
         radio = 15;
     }
 
-    int random_selector =  rand() % 4;
+    int random_selector = (partida_modo == 0) ? rand() % 4 : 1;
     int inicial_x = 0;
     int inicial_y = 0;
     if(random_selector == 0) {
@@ -330,6 +348,7 @@ void crear_enemigo_pos(Listas_NodoPtr p) {
     Listas_Insertar_crear(p, inicial_x, inicial_y, vel_x, vel_y, radio, 0, estado);
 }
 
+// Funcion para dibujar los datos principales en pantalla
 void draw_info() {
     char string_puntos[16];
     char string_vida[18];
@@ -357,17 +376,20 @@ void draw_info() {
     Pantalla_DibujaRectangulo(75, 70, 5+((principal.escudo_c / 400.0) * 95.0), 15);
 }
 
+// Funcion para crear un enemigo(condicional)
 void crear_enemigo(Listas_NodoPtr p, int count) {
     if(count == 0) {
         crear_enemigo_pos(p);
     }
 }
 
+// Funcion para dibujar el cursor del mouse
 void draw_mouse(double x, double y) {
         Pantalla_ColorRelleno(0,0,255, 255);
         Pantalla_DibujaCirculo(x, y, 2);
 }
 
+// Funcion para administrar las habilidades
 void habilidades(Listas_NodoPtr Cadena_disparos, int tipo) {
     if(tipo == 1) {
         if(principal.explosiones > 0) {
@@ -378,13 +400,13 @@ void habilidades(Listas_NodoPtr Cadena_disparos, int tipo) {
                 double pos_x = principal.x + (factor_x * size);
                 double pos_y = principal.y + (factor_y * size);
 
-                double vel = 4;
+                double vel = disparo_speed;
                 double vel_x = factor_x * vel;
                 double vel_y = factor_y * vel;
 
                 Listas_Insertar_crear(Cadena_disparos, pos_x, pos_y, vel_x, vel_y, 3, 0, 1);
             }
-            if(partida_modo == 0)
+            if(partida_modo != 1)
                 principal.explosiones--;
             Mix_PlayChannel( -1, sound_habilidad, 0 );
         }
@@ -399,7 +421,7 @@ void habilidades(Listas_NodoPtr Cadena_disparos, int tipo) {
                         double pos_x = principal.x + ((40*j - 120) * (k-1)) +(factor_x * size);
                         double pos_y = principal.y + ((40*j - 120) * k) + (factor_y * size);
 
-                        double vel = 4;
+                        double vel = disparo_speed;
                         double vel_x = factor_x * vel;
                         double vel_y = factor_y * vel;
 
@@ -407,13 +429,14 @@ void habilidades(Listas_NodoPtr Cadena_disparos, int tipo) {
                     }
                 }
             }
-            if(partida_modo == 0)
+            if(partida_modo != 1)
                 principal.megaexplosiones--;
             Mix_PlayChannel( -1, sound_habilidad, 0 );
         }
     }
 }
 
+// Funcion para activar el escudo
 void escudo_run() {
     if(principal.escudo_s) {
         Pantalla_ColorRelleno(0,225,255, 100);
@@ -422,10 +445,11 @@ void escudo_run() {
         principal.escudo_c++;
 }
 
+// Funcion principal
 int main(int argc, char **argv)
 {
     srand(time(NULL));
-    // Time
+    // Creo el contador de tiempo
     struct timeb start, end;
     int diff;
 
@@ -456,7 +480,7 @@ int main(int argc, char **argv)
     while (Pantalla_Activa() && !terminado) {
         Pantalla_DibujaRellenoFondo(180, 180, 180, 255);
         Pantalla_RatonCoordenadas(&mouse_x, &mouse_y);
-        ftime(&start);
+        ftime(&start); // Inicio el cronometro
 
         if(juego == 0) {
             // Dibujo el fondo
@@ -475,6 +499,7 @@ int main(int argc, char **argv)
             Pantalla_DibujaTexto("Menu", 300, 30);
             Pantalla_DibujaLinea(295, 45, 340, 45);
 
+            // Fractal
             Sierpinski_grow_triangulo(Sierpinski_1, Sierpinski_1);
             Sierpinski_grow_triangulo(Sierpinski_2, Sierpinski_2);
 
@@ -498,27 +523,35 @@ int main(int argc, char **argv)
                 tecla_pulsada = 1;
             }else if(Pantalla_TeclaPulsada(SDL_SCANCODE_RETURN) || Pantalla_TeclaPulsada(SDL_SCANCODE_SPACE)) {
                 if(!tecla_pulsada) {
+                        // Selector de opciones
                         switch(menu_status) {
                            case 0:
-                              juego = 1;
+                              juego = 1; // Jugar
                               partida_estado = 0;
                               partida_modo = 0;
                               Mix_PlayMusic( gMusicMain, -1 );
                               break;
                            case 1:
+                              juego = 1; // Lateral
+                              partida_estado = 0;
+                              partida_modo = 2;
+                              principal.x = principal.radio;
+                              Mix_PlayMusic( gMusicMain, -1 );
+                              break;
+                           case 2: // Sandbox
                               juego = 1;
                               partida_estado = 0;
                               partida_modo = 1;
                               Mix_PlayMusic( gMusicMain, -1 );
                               break;
-                           case 2:
+                           case 3:
                               juego = 2; // Buscaminas
                               partida_estado = 0;
                               partida_modo = 0;
                               Mix_PlayMusic( gMusicBuscaminas, -1 );
                               Buscaminas_iniciar();
                               break;
-                           case 3:
+                           case 4: // Salir
                               terminado = 1;
                               break;
                         }
@@ -530,7 +563,7 @@ int main(int argc, char **argv)
         } else if(juego == 1) {
             if(partida_estado == 0) {
                 // Juego
-                if(partida_modo == 0) {
+                if(partida_modo != 1) { // Si no se esta en Sandbox
                     crear_enemigo(Cadena_enemigos, timer_count);
                     if(principal.puntos >= 200)
                         principal.puntos = 199; // TODO: Lo pongo por si acaso
@@ -540,7 +573,7 @@ int main(int argc, char **argv)
 
 
                 // Controles - Start
-                if(Pantalla_RatonBotonPulsado(SDL_BUTTON_LEFT)) {
+                if(Pantalla_RatonBotonPulsado(SDL_BUTTON_LEFT)) { // Disparo
                     if(!mouse_pulsado) {
                         crear_disparo(Cadena_disparos, mouse_x, mouse_y);
                         Mix_PlayChannel( -1, sound_disparo, 0 );
@@ -550,7 +583,7 @@ int main(int argc, char **argv)
                 }else{
                     mouse_pulsado = 0;
                 }
-                if(Pantalla_RatonBotonPulsado(SDL_BUTTON_RIGHT)) {
+                if(Pantalla_RatonBotonPulsado(SDL_BUTTON_RIGHT)) { // Escudo
                     if(escudo_permitido) {
                         if(principal.escudo_c >= 4) {
                             principal.escudo_c -= 4;
@@ -565,16 +598,20 @@ int main(int argc, char **argv)
                     if(principal.escudo_c >= 100)
                         escudo_permitido = 1;
                 }
-
+                // Movimientos
                 if (Pantalla_TeclaPulsada(SDL_SCANCODE_LEFT) || Pantalla_TeclaPulsada(SDL_SCANCODE_A)) {
-                    principal.x -= mov_speed;
-                    if(principal.x < principal.radio)
-                        principal.x = principal.radio;
+                    if(partida_modo != 2) {
+                        principal.x -= mov_speed;
+                        if(principal.x < principal.radio)
+                            principal.x = principal.radio;
+                    }
                 }
                 if (Pantalla_TeclaPulsada(SDL_SCANCODE_RIGHT) || Pantalla_TeclaPulsada(SDL_SCANCODE_D)) {
-                    principal.x += mov_speed;
-                    if(principal.x > pantalla_ancho-principal.radio)
-                        principal.x = pantalla_ancho-principal.radio;
+                    if(partida_modo != 2) {
+                        principal.x += mov_speed;
+                        if(principal.x > pantalla_ancho-principal.radio)
+                            principal.x = pantalla_ancho-principal.radio;
+                    }
                 }
                 if (Pantalla_TeclaPulsada(SDL_SCANCODE_UP) || Pantalla_TeclaPulsada(SDL_SCANCODE_W)) {
                     principal.y -= mov_speed;
@@ -601,6 +638,7 @@ int main(int argc, char **argv)
                     principal.megaexplosiones += 1;
                 }
 
+                // Habilidades
                 if(Pantalla_TeclaPulsada(SDL_SCANCODE_Q)) {
                     if(!tecla_pulsada)
                         habilidades(Cadena_disparos, 1);
@@ -612,7 +650,6 @@ int main(int argc, char **argv)
                 }else{
                     tecla_pulsada = 0;
                 }
-
                 // Controles - End
 
                 // Comprobaciones - Start
@@ -620,7 +657,7 @@ int main(int argc, char **argv)
                 for(int i = 0; i < 5; i++) // Creo 5 particulas por ciclo
                     Particulas_insertar(0, principal.puntos);
                 disparos(Cadena_disparos, Cadena_enemigos);
-                if(principal.puntos >= 200 && partida_modo == 0)
+                if(principal.puntos >= 200 && partida_modo != 1) // Si no se esta en Sandbox y se ha ganado
                     partida_estado = 1;
                 // Comprobaciones - End
 
@@ -629,7 +666,7 @@ int main(int argc, char **argv)
                 draw_prota();
                 draw_info();
                 Particulas_dibuja(principal.puntos);
-                if(partida_modo == 0)
+                if(partida_modo != 1)
                     draw_enemigos(Cadena_enemigos);
 
             } else if(partida_estado == 1) {
@@ -660,19 +697,20 @@ int main(int argc, char **argv)
 
             }
         }else if(juego == 2) {
+            // Buscaminas (TDA)
             Buscaminas_loop();
             Buscaminas_draw();
         }
 
-        if (Pantalla_TeclaPulsada(SDL_SCANCODE_ESCAPE)) {
+        if (Pantalla_TeclaPulsada(SDL_SCANCODE_ESCAPE)) { // Salir
             //juego = 0;
             terminado = 1;
         }
 
-        draw_mouse(mouse_x, mouse_y);
+        draw_mouse(mouse_x, mouse_y); // Dibujo el cursor
 
-        ftime(&end);
-        diff = (int) (1000.0 * (end.time - start.time) + (end.millitm - start.millitm));
+        ftime(&end); // Paro el cronometro
+        diff = (int) (1000.0 * (end.time - start.time) + (end.millitm - start.millitm)); // Calculo el retardo
         int diff_p = (diff <= 15) ? diff : 15;
         double fps_t = 1000.0/(diff + (15-diff_p)); // Contador de fps variables
         char counter[4];
@@ -686,6 +724,7 @@ int main(int argc, char **argv)
         Pantalla_Actualiza();
         Pantalla_Espera(15-diff_p);
     }
+    // Liberar y salir
     Pantalla_Libera();
     cerrar_juego();
     Listas_liberar(Cadena_disparos);
