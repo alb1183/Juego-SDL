@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Juego SDL: Fichero Fuente C:/Users/usuario2/Desktop/uni/Segundo Cuatrimestre/Programacion/Juego-SDL/Vector.h</title>
+<title>Juego-SDL: Fichero Fuente Vector.h</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -23,7 +23,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Juego SDL
+   <div id="projectname">Juego-SDL
    </div>
   </td>
  </tr>
@@ -38,7 +38,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Buscar');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Página&#160;principal</span></a></li>
-      <li><a href="annotated.html"><span>Clases</span></a></li>
+      <li><a href="annotated.html"><span>Estructuras&#160;de&#160;Datos</span></a></li>
       <li class="current"><a href="files.html"><span>Archivos</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -61,7 +61,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Buscar');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>Lista&#160;de&#160;archivos</span></a></li>
-      <li><a href="globals.html"><span>Miembros&#160;de&#160;los&#160;ficheros</span></a></li>
+      <li><a href="globals.html"><span>Globales</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -81,7 +81,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Buscar');
 
 <div class="header">
   <div class="headertitle">
-<div class="title">C:/Users/usuario2/Desktop/uni/Segundo Cuatrimestre/Programacion/Juego-SDL/Vector.h</div>  </div>
+<div class="title">Vector.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="_vector_8h.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef __VECTOR_H</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define __VECTOR_H</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div><div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="_vector_8h.html#aa5caab17cdcf2ab5530e14e87b8652ac">   15</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="struct_vector.html">Vector</a>* <a class="code" href="_vector_8h.html#aa5caab17cdcf2ab5530e14e87b8652ac">Vector</a>;</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;Vector <a class="code" href="_vector_8h.html#a279187a616315b1df37420949b3b81cf">Vector_new</a>(<span class="keywordtype">double</span> x, <span class="keywordtype">double</span> y);</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keywordtype">double</span> <a class="code" href="_vector_8h.html#afaf2a6a64d5c2f5bdebafc6d0d6eae4f">Vector_get</a>(Vector v, <span class="keywordtype">int</span> t);</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keywordtype">void</span> <a class="code" href="_vector_8h.html#aeb4157c0757b0e8d61f9b8ad04745711">Vector_change</a>(Vector v, <span class="keywordtype">double</span> x, <span class="keywordtype">double</span> y);</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;Vector <a class="code" href="_vector_8h.html#a7a9334a4809cb6aa3f26baa21848bf33">Vector_unitary</a>(Vector v);</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;Vector <a class="code" href="_vector_8h.html#aaaf4d7ab8ea2dbfc5c8076c23fe3d236">Vector_points2vector</a>(Vector inicial, Vector fin);</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;Vector <a class="code" href="_vector_8h.html#ae3f8038928074809ac4e49158a5d1156">Vector_rotate</a>(Vector inicial, <span class="keywordtype">double</span> degree);</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="keywordtype">void</span> <a class="code" href="_vector_8h.html#ab3ac5d7a86c6e2f2372b4eb588c26292">Vector_scale</a>(Vector inicial, <span class="keywordtype">double</span> scale);</div><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor">#endif</span></div><div class="ttc" id="_vector_8h_html_afaf2a6a64d5c2f5bdebafc6d0d6eae4f"><div class="ttname"><a href="_vector_8h.html#afaf2a6a64d5c2f5bdebafc6d0d6eae4f">Vector_get</a></div><div class="ttdeci">double Vector_get(Vector v, int t)</div><div class="ttdoc">Obtener las coordenadas de un vector dado. </div><div class="ttdef"><b>Definition:</b> Vector.c:20</div></div>

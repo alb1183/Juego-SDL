@@ -48,7 +48,8 @@ const int menu_num = 5; // Numero de opciones del menu
 char* menu_opciones[5] = { "Jugar", "Lateral", "Sandbox", "Buscaminas" ,"Salir" };
 // Direcciones de los audios
 const char* data_music_main = "Datos/Musica/main.wav";
-const char* data_music_buscaminas = "Datos/Musica/buscaminas.wav";
+//const char* data_music_buscaminas = "Datos/Musica/buscaminas.wav";
+const char* data_music_buscaminas = "Datos/Musica/main.wav";
 const char* data_music_menu = "Datos/Musica/menu.wav";
 const char* data_sound_disparo = "Datos/Sonidos/beep38.wav";
 const char* data_sound_explosion = "Datos/Sonidos/beep5.wav";
